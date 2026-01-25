@@ -6,6 +6,10 @@ public class MagicSystem : MonoBehaviour
     [Header("Magic Settings")]
     [SerializeField] private float magicCooldown = 3f;
     
+    [Header("Available Spells")]
+    [SerializeField] private List<MagicSpellData> availableSpells = new List<MagicSpellData>();
+    [SerializeField] private int currentSpellIndex = 0;
+    
     private float cooldownTimer;
     private PlayerMovement playerMovement;
 
@@ -20,6 +24,11 @@ public class MagicSystem : MonoBehaviour
         {
             QTEManager.Instance.OnQTEComplete += OnQTECompleted;
         }
+        
+        if (availableSpells.Count == 0)
+        {
+            Debug.LogWarning("MagicSystem: No hay magias configuradas! Añade MagicSpellData assets en el Inspector.");
+        }
     }
 
     private void Update()
@@ -29,57 +38,73 @@ public class MagicSystem : MonoBehaviour
             cooldownTimer -= Time.deltaTime;
         }
 
-        if (InputManager.MagicWasPressed && cooldownTimer <= 0 && !QTEManager.Instance.IsQTEActive())
+        if (cooldownTimer <= 0 && !QTEManager.Instance.IsQTEActive())
         {
-            CastMagic();
+            if (InputManager.Magic1WasPressed && availableSpells.Count > 0)
+            {
+                SetSpell(0);
+                CastMagic();
+            }
+            else if (InputManager.Magic2WasPressed && availableSpells.Count > 1)
+            {
+                SetSpell(1);
+                CastMagic();
+            }
+            else if (InputManager.Magic3WasPressed && availableSpells.Count > 2)
+            {
+                SetSpell(2);
+                CastMagic();
+            }
         }
     }
 
     private void CastMagic()
     {
-        Debug.Log("Magic cast initiated!");
-        
-        List<QTEButton> buttons = GenerateRandomButtons();
-        QTEManager.Instance.StartQTE(buttons);
-        
-        cooldownTimer = magicCooldown;
-    }
-
-    private List<QTEButton> GenerateRandomButtons()
-    {
-        List<QTEButton> buttons = new List<QTEButton>();
-        KeyCode[] availableKeys = { KeyCode.Q, KeyCode.W, KeyCode.E, KeyCode.R };
-        
-        for (int i = 0; i < 3; i++)
+        if (availableSpells.Count == 0)
         {
-            float thirdStart = i / 3f;
-            float thirdEnd = (i + 1) / 3f;
-            float centerOffset = 1f / 6f;
-            float randomRange = 0.1f;
-            
-            float targetPos = thirdStart + centerOffset + Random.Range(-randomRange, randomRange);
-            targetPos = Mathf.Clamp(targetPos, thirdStart + 0.05f, thirdEnd - 0.05f);
-            
-            KeyCode randomKey = availableKeys[Random.Range(0, availableKeys.Length)];
-            buttons.Add(new QTEButton(randomKey, targetPos));
+            Debug.LogWarning("No hay magias disponibles para lanzar!");
+            return;
         }
         
-        return buttons;
+        MagicSpellData spell = availableSpells[currentSpellIndex];
+        
+        if (spell.buttons.Count == 0)
+        {
+            Debug.LogWarning($"La magia '{spell.spellName}' no tiene botones configurados!");
+            return;
+        }
+        
+        Debug.Log($"Lanzando: {spell.spellName}");
+        
+        List<QTEButton> buttons = new List<QTEButton>();
+        foreach (var buttonData in spell.buttons)
+        {
+            buttons.Add(new QTEButton(buttonData.key, buttonData.position));
+        }
+        
+        QTEManager.Instance.StartQTE(buttons);
+        
+        cooldownTimer = magicCooldown * spell.cooldownMultiplier;
     }
 
     private void OnQTECompleted(int score)
     {
-        if (score >= 9)
+        if (availableSpells.Count == 0) return;
+        
+        MagicSpellData spell = availableSpells[currentSpellIndex];
+        int maxScore = spell.buttons.Count * 3;
+        
+        if (score >= maxScore)
         {
-            Debug.Log("=== MAGIA PERFECTA ===");
+            Debug.Log($"=== {spell.spellName.ToUpper()} PERFECTA === ({score}/{maxScore} puntos)");
         }
-        else if (score >= 4)
+        else if (score >= maxScore / 2)
         {
-            Debug.Log("=== MAGIA PARCIAL (50% efectividad) ===");
+            Debug.Log($"=== {spell.spellName.ToUpper()} PARCIAL === ({score}/{maxScore} puntos, 50% efectividad)");
         }
         else
         {
-            Debug.Log("=== MAGIA FALLIDA ===");
+            Debug.Log($"=== {spell.spellName.ToUpper()} FALLIDA === ({score}/{maxScore} puntos)");
         }
     }
 
@@ -94,5 +119,45 @@ public class MagicSystem : MonoBehaviour
     public float GetCooldownProgress()
     {
         return Mathf.Clamp01(1f - (cooldownTimer / magicCooldown));
+    }
+    
+    public void SetSpell(int index)
+    {
+        if (index >= 0 && index < availableSpells.Count)
+        {
+            currentSpellIndex = index;
+            Debug.Log($"Magia seleccionada: {availableSpells[currentSpellIndex].spellName}");
+        }
+        else
+        {
+            Debug.LogWarning($"Índice de magia inválido: {index}");
+        }
+    }
+    
+    public void NextSpell()
+    {
+        if (availableSpells.Count == 0) return;
+        
+        currentSpellIndex = (currentSpellIndex + 1) % availableSpells.Count;
+        Debug.Log($"Magia seleccionada: {availableSpells[currentSpellIndex].spellName}");
+    }
+    
+    public void PreviousSpell()
+    {
+        if (availableSpells.Count == 0) return;
+        
+        currentSpellIndex--;
+        if (currentSpellIndex < 0)
+            currentSpellIndex = availableSpells.Count - 1;
+        
+        Debug.Log($"Magia seleccionada: {availableSpells[currentSpellIndex].spellName}");
+    }
+    
+    public string GetCurrentSpellName()
+    {
+        if (availableSpells.Count == 0 || currentSpellIndex >= availableSpells.Count)
+            return "Sin magia";
+        
+        return availableSpells[currentSpellIndex].spellName;
     }
 }

@@ -90,16 +90,37 @@ public class QTEManager : MonoBehaviour
 
         QTEButton currentButton = qteButtons[currentButtonIndex];
         
-        if (InputManager.QTEButton1WasPressed && currentButton.keyCode == KeyCode.Q ||
-            InputManager.QTEButton2WasPressed && currentButton.keyCode == KeyCode.W ||
-            InputManager.QTEButton3WasPressed && currentButton.keyCode == KeyCode.E ||
-            InputManager.QTEButton4WasPressed && currentButton.keyCode == KeyCode.R)
+        bool q_pressed = InputManager.QTEButton1WasPressed;
+        bool w_pressed = InputManager.QTEButton2WasPressed;
+        bool e_pressed = InputManager.QTEButton3WasPressed;
+        bool r_pressed = InputManager.QTEButton4WasPressed;
+        
+        bool anyButtonPressed = q_pressed || w_pressed || e_pressed || r_pressed;
+        
+        if (!anyButtonPressed) return;
+        
+        bool correctButtonPressed = 
+            (q_pressed && currentButton.keyCode == KeyCode.Q) ||
+            (w_pressed && currentButton.keyCode == KeyCode.W) ||
+            (e_pressed && currentButton.keyCode == KeyCode.E) ||
+            (r_pressed && currentButton.keyCode == KeyCode.R);
+        
+        if (correctButtonPressed)
         {
             int score = EvaluateHit(currentButton.targetPosition);
             totalScore += score;
             
             string result = score == 3 ? "PERFECTO" : score == 1 ? "PARCIAL" : "MISS";
             Debug.Log($"Button {currentButtonIndex + 1}: {result} (+{score} puntos)");
+            
+            currentButtonIndex++;
+        }
+        else
+        {
+            string wrongKey = q_pressed ? "Q" : w_pressed ? "W" : e_pressed ? "E" : "R";
+            string expectedKey = currentButton.keyCode.ToString();
+            
+            Debug.Log($"Button {currentButtonIndex + 1}: FALLO - Presionaste {wrongKey} (esperaba {expectedKey}) (+0 puntos)");
             
             currentButtonIndex++;
         }
@@ -129,7 +150,7 @@ public class QTEManager : MonoBehaviour
         
         ResumeGame();
         
-        Debug.Log($"=== MAGIA FINALIZADA === Puntos obtenidos: {totalScore}/9");
+        Debug.Log($"=== MAGIA FINALIZADA === Puntos obtenidos: {totalScore}/{qteButtons.Count * 3}");
         
         OnQTEComplete?.Invoke(totalScore);
     }

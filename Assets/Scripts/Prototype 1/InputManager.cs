@@ -12,6 +12,9 @@ public class InputManager : MonoBehaviour
     public static bool RunIsHeld;
     public static bool AttackWasPressed;
     public static bool MagicWasPressed;
+    public static bool Magic1WasPressed;
+    public static bool Magic2WasPressed;
+    public static bool Magic3WasPressed;
     public static bool QTEButton1WasPressed;
     public static bool QTEButton2WasPressed;
     public static bool QTEButton3WasPressed;
@@ -22,6 +25,9 @@ public class InputManager : MonoBehaviour
     private InputAction _runAction;
     private InputAction _attackAction;
     private InputAction _magicAction;
+    private InputAction _magic1Action;
+    private InputAction _magic2Action;
+    private InputAction _magic3Action;
     private InputAction _qteButton1Action;
     private InputAction _qteButton2Action;
     private InputAction _qteButton3Action;
@@ -44,10 +50,28 @@ public class InputManager : MonoBehaviour
             _runAction  = PlayerInput.actions["Run"];
             _attackAction = PlayerInput.actions["Attack"];
             _magicAction = PlayerInput.actions["Magic"];
+            
+            _magic1Action = TryGetAction("Magic1");
+            _magic2Action = TryGetAction("Magic2");
+            _magic3Action = TryGetAction("Magic3");
+            
             _qteButton1Action = PlayerInput.actions["QTEButton1"];
             _qteButton2Action = PlayerInput.actions["QTEButton2"];
             _qteButton3Action = PlayerInput.actions["QTEButton3"];
             _qteButton4Action = PlayerInput.actions["QTEButton4"];
+        }
+    }
+    
+    private InputAction TryGetAction(string actionName)
+    {
+        try
+        {
+            return PlayerInput.actions[actionName];
+        }
+        catch
+        {
+            Debug.LogWarning($"InputManager: Action '{actionName}' not found. Please update Input Actions via Tools → Update Input Actions for Magic System");
+            return null;
         }
     }
 
@@ -63,6 +87,9 @@ public class InputManager : MonoBehaviour
             
             AttackWasPressed = _attackAction.WasPressedThisFrame();
             MagicWasPressed = _magicAction.WasPressedThisFrame();
+            Magic1WasPressed = _magic1Action != null && _magic1Action.WasPressedThisFrame();
+            Magic2WasPressed = _magic2Action != null && _magic2Action.WasPressedThisFrame();
+            Magic3WasPressed = _magic3Action != null && _magic3Action.WasPressedThisFrame();
             
             QTEButton1WasPressed = _qteButton1Action.WasPressedThisFrame();
             QTEButton2WasPressed = _qteButton2Action.WasPressedThisFrame();

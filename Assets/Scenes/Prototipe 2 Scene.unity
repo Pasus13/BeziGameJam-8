@@ -821,7 +821,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 3efc3df2474ec844ead1b9b661c41198, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -1041,6 +1041,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MagicSystem
   magicCooldown: 3
+  availableSpells:
+  - {fileID: 11400000, guid: 6504564b6a6f93e49b1694484476f54a, type: 2}
+  - {fileID: 11400000, guid: 319f1d828ab6ebb418fd97c0ea2b319c, type: 2}
+  - {fileID: 11400000, guid: 462b86dab7a0e4649b4e38c2c00a475f, type: 2}
+  currentSpellIndex: 0
 --- !u!1 &1245743868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,6 +1441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba4f0c0f4d4ba94487fae9045952af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QTEManager
+  startDelay: 1
   barDuration: 2
   perfectZoneSize: 0.05
   goodZoneSize: 0.1
@@ -1616,7 +1622,7 @@ Transform:
   m_GameObject: {fileID: 1654359401}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: 3, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

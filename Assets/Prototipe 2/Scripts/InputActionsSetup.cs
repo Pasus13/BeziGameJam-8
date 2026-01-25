@@ -11,6 +11,13 @@ public static class InputActionsSetup
     {
         EditorApplication.delayCall += SetupInputActions;
     }
+    
+    [MenuItem("Tools/Setup Magic Input Actions")]
+    public static void SetupMagicInputActionsMenu()
+    {
+        SetupInputActions();
+        Debug.Log("✅ <b>Input Actions configurado manualmente!</b>");
+    }
 
     private static void SetupInputActions()
     {
@@ -39,6 +46,45 @@ public static class InputActionsSetup
             magicAction.AddBinding("<Keyboard>/a");
             needsSave = true;
             Debug.Log("Added Magic action");
+        }
+        
+        if (playerMap.FindAction("Magic1") == null)
+        {
+            playerMap.AddAction("Magic1", InputActionType.Button);
+            var magic1Action = playerMap.FindAction("Magic1");
+            magic1Action.AddBinding("<Keyboard>/a");
+            needsSave = true;
+            Debug.Log("Added Magic1 action (A)");
+        }
+        
+        if (playerMap.FindAction("Magic2") == null)
+        {
+            playerMap.AddAction("Magic2", InputActionType.Button);
+            var magic2Action = playerMap.FindAction("Magic2");
+            magic2Action.AddBinding("<Keyboard>/s");
+            needsSave = true;
+            Debug.Log("Added Magic2 action (S)");
+        }
+        
+        if (playerMap.FindAction("Magic3") == null)
+        {
+            playerMap.AddAction("Magic3", InputActionType.Button);
+            var magic3Action = playerMap.FindAction("Magic3");
+            magic3Action.AddBinding("<Keyboard>/d");
+            needsSave = true;
+            Debug.Log("Added Magic3 action (D)");
+        }
+        
+        var attackAction = playerMap.FindAction("Attack");
+        if (attackAction != null && attackAction.bindings.Count > 0)
+        {
+            string currentPath = attackAction.bindings[0].effectivePath;
+            if (currentPath != "<Keyboard>/f")
+            {
+                attackAction.ChangeBinding(0).WithPath("<Keyboard>/f");
+                needsSave = true;
+                Debug.Log("Changed Attack to F key");
+            }
         }
 
         if (playerMap.FindAction("QTEButton1") == null)
