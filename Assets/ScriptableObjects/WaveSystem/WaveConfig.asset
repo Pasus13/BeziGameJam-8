@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c353675a52cb4478820bb0546aed75, type: 3}
+  m_Name: WaveConfig
+  m_EditorClassIdentifier: Assembly-CSharp::WaveSystemConfig
+  waves:
+  - {fileID: 11400000, guid: b52f2a14ceaf04f47993f141505f7970, type: 2}
+  - {fileID: 11400000, guid: 48a8d8e1cfde886429ac66a88cfc0cc9, type: 2}
+  - {fileID: 11400000, guid: 1d8b54b673a42c44abf6028706b6d18b, type: 2}
+  initialSpawnCount: 4
+  continuousSpawnCount: 2
+  spawnInterval: 6

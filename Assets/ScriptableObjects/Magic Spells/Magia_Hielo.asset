@@ -22,5 +22,5 @@ MonoBehaviour:
     position: 0.6
   - key: 101
     position: 0.8
-  damageMultiplier: 0.8
+  damageArea: {fileID: 11400000, guid: 523207fb8a2445c459d1ce64471722cc, type: 2}
   cooldownMultiplier: 0.8
