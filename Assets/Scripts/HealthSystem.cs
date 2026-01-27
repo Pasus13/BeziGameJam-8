@@ -30,7 +30,7 @@ public class HealthSystem : MonoBehaviour
         if (CurrentLives <= 0) return;
 
         currentLives--;
-        OnLifeLost?.Invoke();
+        // OnLifeLost?.Invoke();
         OnLivesChanged?.Invoke(CurrentLives, maxLives);
 
         if (CurrentLives <= 0)

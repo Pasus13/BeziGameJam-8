@@ -6,15 +6,18 @@ public class Enemy : MonoBehaviour
     [Header("Knockback")]
     [SerializeField] private float knockbackForce = 5f;
 
-    private HealthEnemies health;
+    private IDamageable health;
     private Rigidbody2D rb;
 
     private void Awake()
     {
-        health = GetComponent<HealthEnemies>();
+        health = GetComponent<IDamageable>();
         rb = GetComponent<Rigidbody2D>();
 
-        health.OnDeath += HandleDeath;
+        if (health != null)
+        {
+            health.OnDeath += HandleDeath;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

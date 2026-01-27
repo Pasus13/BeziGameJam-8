@@ -16,6 +16,7 @@ public class WaveManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform playerRespawnPoint;
     [SerializeField] private Transform player;
+    [SerializeField] private GameObject goalObject;
     
     [Header("Events")]
     public UnityEvent<int> OnWaveStart;
@@ -113,6 +114,11 @@ public class WaveManager : MonoBehaviour
 
         OnWaveStart?.Invoke(currentWaveIndex + 1);
         Debug.Log($"=== OLEADA {currentWaveIndex + 1} INICIADA === ({enemiesToSpawnThisWave} enemigos)");
+
+        if (goalObject != null)
+        {
+            goalObject.SetActive(false);
+        }
 
         if (spawnCoroutine != null)
         {
@@ -243,6 +249,22 @@ public class WaveManager : MonoBehaviour
         OnWaveComplete?.Invoke(currentWaveIndex + 1);
         Debug.Log($"=== OLEADA {currentWaveIndex + 1} COMPLETADA ===");
 
+        if (goalObject != null)
+        {
+            goalObject.SetActive(true);
+            
+            GoalTrigger goalTrigger = goalObject.GetComponent<GoalTrigger>();
+            if (goalTrigger != null)
+            {
+                goalTrigger.ResetTrigger();
+            }
+        }
+    }
+
+    public void OnPlayerReachedGoal()
+    {
+        Debug.Log("=== PLAYER ALCANZÓ EL GOAL ===");
+        
         Time.timeScale = 0f;
 
         if (UIManager.Instance != null)
@@ -255,14 +277,6 @@ public class WaveManager : MonoBehaviour
                 ModifierOffer[] offers = modifierManager.GenerateOffers(3);
                 UIManager.Instance.ShowModifierChoices(offers, (selectedIndex) => OnModifierSelected(selectedIndex, offers[selectedIndex], modifierManager, gameManager));
             }
-            else
-            {
-                UIManager.Instance.ShowModifierPanel(() => PrepareNextWave());
-            }
-        }
-        else
-        {
-            PrepareNextWave();
         }
     }
 
@@ -275,6 +289,11 @@ public class WaveManager : MonoBehaviour
     private void PrepareNextWave()
     {
         Time.timeScale = 1f;
+
+        if (goalObject != null)
+        {
+            goalObject.SetActive(false);
+        }
 
         if (player != null && playerRespawnPoint != null)
         {

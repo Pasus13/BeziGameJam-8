@@ -12,17 +12,15 @@ public class PlayerCombat : MonoBehaviour
     [Header("Knockback")]
     [SerializeField] private float knockbackForce = 5f;
 
-    private Health health;
+    private IDamageable playerHealth;
     private PlayerMovement playerMovement;
 
     private float attackTimer;
 
     private void Awake()
     {
-        health = GetComponent<Health>();
+        playerHealth = GetComponent<IDamageable>();
         playerMovement = GetComponent<PlayerMovement>();
-
-        // health.OnDeath += HandleDeath;
     }
 
     private void Update()
@@ -49,7 +47,7 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            Health enemyHealth = hit.GetComponent<Health>();
+            IDamageable enemyHealth = hit.GetComponent<IDamageable>();
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(attackDamage);
@@ -68,18 +66,12 @@ public class PlayerCombat : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && playerHealth != null)
         {
-            health.TakeDamage(1);
+            playerHealth.TakeDamage(1);
 
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
         }
-    }
-
-    private void HandleDeath()
-    {
-        Debug.Log("Player died!");
-        gameObject.SetActive(false);
     }
 
     private void OnDrawGizmosSelected()
@@ -92,5 +84,13 @@ public class PlayerCombat : MonoBehaviour
         
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPosition, 0.5f);
+    }
+
+    /// Resetea el estado de combate del jugador
+    public void ResetCombat()
+    {
+        attackTimer = 0f;
+
+        Debug.Log("PlayerCombat: Estado de combate reseteado");
     }
 }

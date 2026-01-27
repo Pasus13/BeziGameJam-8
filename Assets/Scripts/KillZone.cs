@@ -13,9 +13,17 @@ public class KillZone : MonoBehaviour
 
         _alreadyTriggered = true;
 
-        var life = root.GetComponent<HealthSystem>();
-        if (life != null)
-            life.LoseLife();
+        // Activar Game Over directo
+        Debug.Log("=== PLAYER CAYÓ EN KILLZONE - GAME OVER ===");
+
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.ShowGameOverPanel();
+        }
+        else
+        {
+            Debug.LogError("UIManager.Instance es null! No se puede mostrar Game Over Panel");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -23,6 +31,5 @@ public class KillZone : MonoBehaviour
         if (other.transform.root.CompareTag("Player"))
             _alreadyTriggered = false;
     }
-
 }
 

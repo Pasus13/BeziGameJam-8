@@ -132,7 +132,7 @@ public class MagicSystem : MonoBehaviour
         int finalDamage = Mathf.RoundToInt(spell.damageArea.baseDamage * damageMultiplier);
         Vector2 playerPosition = transform.position;
         
-        List<HealthEnemies> enemiesHit = new List<HealthEnemies>();
+        List<IDamageable> enemiesHit = new List<IDamageable>();
         
         switch (spell.damageArea.areaType)
         {
@@ -160,14 +160,14 @@ public class MagicSystem : MonoBehaviour
         Debug.Log($"[{spell.spellName}] Daño aplicado: {finalDamage} a {enemiesHit.Count} enemigo(s)");
     }
     
-    private List<HealthEnemies> GetEnemiesInCircle(Vector2 center, float radius)
+    private List<IDamageable> GetEnemiesInCircle(Vector2 center, float radius)
     {
-        List<HealthEnemies> enemies = new List<HealthEnemies>();
+        List<IDamageable> enemies = new List<IDamageable>();
         Collider2D[] hits = Physics2D.OverlapCircleAll(center, radius);
         
         foreach (var hit in hits)
         {
-            HealthEnemies health = hit.GetComponent<HealthEnemies>();
+            IDamageable health = hit.GetComponent<IDamageable>();
             if (health != null && !enemies.Contains(health))
             {
                 enemies.Add(health);
@@ -177,9 +177,9 @@ public class MagicSystem : MonoBehaviour
         return enemies;
     }
     
-    private List<HealthEnemies> GetEnemiesInCone(Vector2 origin, float distance, float angle, bool facingRight)
+    private List<IDamageable> GetEnemiesInCone(Vector2 origin, float distance, float angle, bool facingRight)
     {
-        List<HealthEnemies> enemies = new List<HealthEnemies>();
+        List<IDamageable> enemies = new List<IDamageable>();
         Collider2D[] hits = Physics2D.OverlapCircleAll(origin, distance);
         
         Vector2 coneDirection = facingRight ? Vector2.right : Vector2.left;
@@ -187,7 +187,7 @@ public class MagicSystem : MonoBehaviour
         
         foreach (var hit in hits)
         {
-            HealthEnemies health = hit.GetComponent<HealthEnemies>();
+            IDamageable health = hit.GetComponent<IDamageable>();
             if (health != null)
             {
                 Vector2 directionToEnemy = ((Vector2)hit.transform.position - origin).normalized;
@@ -203,16 +203,16 @@ public class MagicSystem : MonoBehaviour
         return enemies;
     }
     
-    private List<HealthEnemies> GetEnemiesInRectangle(Vector2 playerPosition, Vector2 size, Vector2 offset)
+    private List<IDamageable> GetEnemiesInRectangle(Vector2 playerPosition, Vector2 size, Vector2 offset)
     {
-        List<HealthEnemies> enemies = new List<HealthEnemies>();
+        List<IDamageable> enemies = new List<IDamageable>();
         Vector2 boxCenter = playerPosition + offset;
         
         Collider2D[] hits = Physics2D.OverlapBoxAll(boxCenter, size, 0f);
         
         foreach (var hit in hits)
         {
-            HealthEnemies health = hit.GetComponent<HealthEnemies>();
+            IDamageable health = hit.GetComponent<IDamageable>();
             if (health != null && !enemies.Contains(health))
             {
                 enemies.Add(health);
@@ -273,6 +273,15 @@ public class MagicSystem : MonoBehaviour
             return "Sin magia";
         
         return availableSpells[currentSpellIndex].spellName;
+    }
+
+    /// Resetea el sistema de magia a su estado inicial
+    public void ResetMagic()
+    {
+        cooldownTimer = 0f;
+        currentSpellIndex = 0;
+
+        Debug.Log("MagicSystem: Sistema de magia reseteado");
     }
 
 #if UNITY_EDITOR

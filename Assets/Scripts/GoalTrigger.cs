@@ -3,7 +3,11 @@ using UnityEngine;
 public class GoalTrigger : MonoBehaviour
 {
     private bool _alreadyTriggered;
-    [SerializeField] private GameManager _gameManager;
+
+    public void ResetTrigger()
+    {
+        _alreadyTriggered = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,12 +18,9 @@ public class GoalTrigger : MonoBehaviour
 
         _alreadyTriggered = true;
 
-        _gameManager.OnLevelCompleted();
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.transform.root.CompareTag("Player"))
-            _alreadyTriggered = false;
+        if (WaveManager.Instance != null)
+        {
+            WaveManager.Instance.OnPlayerReachedGoal();
+        }
     }
 }

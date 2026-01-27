@@ -465,6 +465,18 @@ public class PlayerMovement : MonoBehaviour
         if (_invertHorizontalStack < 0) _invertHorizontalStack = 0;
     }
 
+    /// Resetea todos los multiplicadores de runtime a sus valores por defecto
+    public void ResetMultipliers()
+    {
+        GravityMultiplier = 1f;
+        MaxFallSpeedMultiplier = 1f;
+        SpeedMultiplier = 1f;
+        ResetInputModifiers(); // También resetea el input invertido
+
+        Debug.Log("PlayerMovement: Multiplicadores reseteados a valores por defecto");
+    }
+
+
     #endregion
 
     #region Collision Checks

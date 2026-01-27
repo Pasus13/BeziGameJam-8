@@ -1,40 +1,51 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerDeathHandler : MonoBehaviour
 {
-    [SerializeField] private float respawnDelay = 0.05f;
-
-    private HealthSystem _life;
-    private PlayerMovement _movement;
+    [Header("References")]
+    [SerializeField] private PlayerHealth playerHealth;
 
     private void Awake()
     {
-        _life = GetComponent<HealthSystem>();
-        _movement = GetComponent<PlayerMovement>();
+        // Obtener referencia si no está asignada
+        if (playerHealth == null)
+            playerHealth = GetComponent<PlayerHealth>();
 
-        _life.OnLifeLost.AddListener(HandleLifeLost);
-        _life.OnGameOver.AddListener(HandleGameOver);
+        // Validar que tenemos la referencia necesaria
+        if (playerHealth == null)
+        {
+            Debug.LogError("PlayerDeathHandler: No se encontró PlayerHealth en el Player!");
+            return;
+        }
+
+        // Suscribirse SOLO al evento de muerte del HealthComponent
+        playerHealth.OnDeath += HandlePlayerDeath;
     }
 
-    private void HandleLifeLost()
+    private void OnDestroy()
     {
-        // Respawn inmediato (o con delay)
-        Invoke(nameof(RespawnNow), respawnDelay);
+        // Desuscribirse para evitar memory leaks
+        if (playerHealth != null)
+        {
+            playerHealth.OnDeath -= HandlePlayerDeath;
+        }
     }
 
-    private void RespawnNow()
+    /// <summary>
+    /// Se llama cuando el jugador muere (CurrentHealth = 0)
+    /// Ahora activa Game Over directo, sin respawn
+    /// </summary>
+    private void HandlePlayerDeath()
     {
-        _movement.Respawn();
-    }
+        Debug.Log("=== GAME OVER - PLAYER MURIÓ ===");
 
-    private void HandleGameOver()
-    {
-        Debug.Log("GAME OVER");
-        
         if (UIManager.Instance != null)
         {
             UIManager.Instance.ShowGameOverPanel();
         }
+        else
+        {
+            Debug.LogError("UIManager.Instance es null! No se puede mostrar Game Over Panel");
+        }
     }
 }
-
