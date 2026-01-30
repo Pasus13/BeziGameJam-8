@@ -15,4 +15,9 @@ public interface IEnemyMovement
 
     /// Voltea el sprite del enemigo hacia un objetivo (flip horizontal)
     void FlipTowards(Vector2 target);
+
+    /// <summary>
+    /// Resets patrol state (useful when recalculating patrol points)
+    /// </summary>
+    void ResetPatrol();
 }

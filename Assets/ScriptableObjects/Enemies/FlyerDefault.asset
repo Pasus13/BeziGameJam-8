@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: FlyerDefault
   m_EditorClassIdentifier: Assembly-CSharp::FlyerEnemyConfig
   patrolSpeed: 2
+  maxPatrolWidth: 8
   chaseSpeed: 4
   detectionRange: 7
   playerLayer:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 256
   contactDamage: 1
   contactDamageCooldown: 1
   prepareTime: 1.2
@@ -27,11 +28,17 @@ MonoBehaviour:
   hoverHeight: 3
   followDistance: 4
   hoverSpeed: 2
-  idleDetectionTime: 2.5
-  idlePositionThreshold: 0.1
-  diveSpeed: 12
+  awarenessDeadzone: 0.5
+  idleDetectionTime: 1
+  idlePositionThreshold: 0.3
+  diveSpeed: 10
   divePrepareTime: 1.2
   diveCooldown: 5
   diveRecoverTime: 2.5
+  minimumPatrolHeight: 5
+  playerHeightOffset: 3
+  ascentSpeed: 7
+  maxAscentDuration: 2
+  ascentCompleteThreshold: 0.3
   patrolAreaSize: {x: 5, y: 2}
   balanceNotes: 

@@ -12,6 +12,9 @@ public class ChargeAttack : MonoBehaviour, IAttack
     [Header("Debug")]
     [SerializeField] private bool showDebugLogs = false;
 
+    [Header("Collision Detection")]
+    [SerializeField] private LayerMask obstacleLayer;
+
     private Rigidbody2D rb;
     private Vector2 chargeDirection;
     private float chargeTimer;
@@ -28,6 +31,11 @@ public class ChargeAttack : MonoBehaviour, IAttack
         if (rb == null)
         {
             Debug.LogError($"ChargeAttack on {gameObject.name}: No se encontró Rigidbody2D!");
+        }
+
+        if (obstacleLayer == 0)
+        {
+            obstacleLayer = LayerMask.GetMask("Ground", "Wall", "Platform");
         }
     }
 
@@ -123,6 +131,20 @@ public class ChargeAttack : MonoBehaviour, IAttack
     public void CancelAttack()
     {
         StopCharge();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!isCharging) return;
+
+        int collisionLayer = collision.gameObject.layer;
+
+        // Check if layer is in obstacle mask
+        if (((1 << collisionLayer) & obstacleLayer) != 0)
+        {
+            Debug.Log($"💥 Collision with {collision.gameObject.name}!");
+            StopCharge();
+        }
     }
 
     private void OnDrawGizmosSelected()

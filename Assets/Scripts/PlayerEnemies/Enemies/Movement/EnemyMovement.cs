@@ -2,7 +2,6 @@ using UnityEngine;
 
 /// <summary>
 /// Implementación del sistema de movimiento para enemigos.
-/// Maneja patrulla, persecución y flip de sprites.
 /// </summary>
 public class EnemyMovement : MonoBehaviour, IEnemyMovement
 {
@@ -29,29 +28,36 @@ public class EnemyMovement : MonoBehaviour, IEnemyMovement
 
     /// <summary>
     /// Mueve el enemigo hacia un objetivo específico
+    /// CORREGIDO: Solo mueve horizontalmente, respeta gravedad en Y
     /// </summary>
     public void MoveTowards(Vector2 target, float speed)
     {
         if (rb == null) return;
 
-        Vector2 direction = (target - (Vector2)transform.position).normalized;
-        rb.linearVelocity = direction * speed;
+        // Calcular dirección horizontal (izquierda = -1, derecha = 1)
+        float directionX = Mathf.Sign(target.x - transform.position.x);
+
+        // Aplicar velocidad SOLO en X, mantener Y para gravedad
+        rb.linearVelocity = new Vector2(directionX * speed, rb.linearVelocity.y);
 
         FlipTowards(target);
     }
 
     /// <summary>
     /// Detiene el movimiento del enemigo
+    /// CORREGIDO: Solo detiene movimiento horizontal, mantiene velocidad vertical
     /// </summary>
     public void Stop()
     {
         if (rb == null) return;
 
-        rb.linearVelocity = Vector2.zero;
+        // Solo detener movimiento horizontal, mantener caída/salto
+        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
     }
 
     /// <summary>
     /// Hace que el enemigo patrulle entre dos puntos
+    /// CORREGIDO: Patrulla horizontal, respeta gravedad
     /// </summary>
     public void PatrolBetweenPoints(Vector2 pointA, Vector2 pointB)
     {
@@ -63,16 +69,18 @@ public class EnemyMovement : MonoBehaviour, IEnemyMovement
             SetPatrolPoints(pointA, pointB);
         }
 
-        // Calcular dirección hacia el punto objetivo
-        Vector2 direction = (currentPatrolTarget - (Vector2)transform.position).normalized;
-        rb.linearVelocity = direction * 2f; // Usar velocidad de config después
+        // Calcular dirección horizontal hacia el punto objetivo
+        float directionX = Mathf.Sign(currentPatrolTarget.x - transform.position.x);
+
+        // Aplicar velocidad solo en X, mantener Y para gravedad
+        rb.linearVelocity = new Vector2(directionX * 2f, rb.linearVelocity.y);
 
         // Voltear hacia el objetivo
         FlipTowards(currentPatrolTarget);
 
-        // Verificar si llegamos al punto objetivo
-        float distance = Vector2.Distance(transform.position, currentPatrolTarget);
-        if (distance < 0.2f)
+        // Verificar si llegamos al punto objetivo (solo comprobación en X)
+        float distanceX = Mathf.Abs(transform.position.x - currentPatrolTarget.x);
+        if (distanceX < 0.2f)
         {
             // Cambiar al otro punto
             movingToB = !movingToB;

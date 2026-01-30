@@ -20,6 +20,14 @@ public class FlyerEnemyConfig : EnemyConfigBase
     [Range(1f, 5f)]
     public float hoverSpeed = 2f;
 
+    [Tooltip("Minimum player movement to trigger repositioning X Axis")]
+    [Range(0.1f, 2f)]
+    public float awarenessDeadzoneX = 0.5f;
+
+    [Tooltip("Minimum player movement to trigger repositioning Y Axis")]
+    [Range(0.1f, 2f)]
+    public float awarenessDeadzoneY = 0.3f;
+
     [Header("Idle Detection")]
     [Tooltip("Tiempo que el jugador debe estar quieto para activar dive")]
     [Range(1f, 5f)]
@@ -45,6 +53,22 @@ public class FlyerEnemyConfig : EnemyConfigBase
     [Tooltip("Tiempo de recuperación tras fallar dive")]
     [Range(1.5f, 4f)]
     public float diveRecoverTime = 2.5f;
+
+    [Header("Ascent Behavior")]
+    [Tooltip("Minimum altitude for patrol (world Y coordinate)")]
+    public float minimumPatrolHeight = 5f;
+
+    [Tooltip("Height offset above player to maintain")]
+    public float playerHeightOffset = 3f;
+
+    [Tooltip("Speed of ascent after dive (fast escape)")]
+    public float ascentSpeed = 7f;
+
+    [Tooltip("Maximum time for ascent (safety timeout)")]
+    public float maxAscentDuration = 2f;
+
+    [Tooltip("Distance threshold to consider ascent complete")]
+    public float ascentCompleteThreshold = 0.3f;
 
     [Header("Patrol")]
     [Tooltip("Tamaño del área de patrulla aérea")]

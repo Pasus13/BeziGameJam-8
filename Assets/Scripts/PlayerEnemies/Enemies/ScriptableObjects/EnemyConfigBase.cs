@@ -1,8 +1,8 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 
 /// <summary>
-/// ConfiguraciÛn base para todos los enemigos.
-/// Todos los enemigos heredan de esta clase y aÒaden sus par·metros especÌficos.
+/// Configuraci√≥n base para todos los enemigos.
+/// Todos los enemigos heredan de esta clase y a√±aden sus par√°metros espec√≠ficos.
 /// </summary>
 [CreateAssetMenu(fileName = "EnemyConfig", menuName = "Enemies/Base Config")]
 public class EnemyConfigBase : ScriptableObject
@@ -11,25 +11,29 @@ public class EnemyConfigBase : ScriptableObject
     [Tooltip("Velocidad de patrulla")]
     public float patrolSpeed = 2f;
 
+    [Header("Patrol Settings")]
+    [Tooltip("Ancho m√°ximo de patrulla (√∫til para suelos completos)")]
+    public float maxPatrolWidth = 8f; 
+
     [Tooltip("Velocidad al perseguir al jugador")]
     public float chaseSpeed = 4f;
 
     [Header("Detection")]
-    [Tooltip("Rango de detecciÛn del jugador")]
+    [Tooltip("Rango de detecci√≥n del jugador")]
     public float detectionRange = 5f;
 
     [Tooltip("Layer del jugador para raycast")]
-    public LayerMask playerLayer = 1 << 6; // Asume que Player est· en layer 6
+    public LayerMask playerLayer = 1 << 6; // Asume que Player est√° en layer 6
 
     [Header("Combat")]
-    [Tooltip("DaÒo que hace el enemigo al tocar al jugador")]
+    [Tooltip("Da√±o que hace el enemigo al tocar al jugador")]
     public int contactDamage = 1;
 
     [Tooltip("Cooldown entre golpes de contacto para evitar spam")]
     public float contactDamageCooldown = 1f;
 
     [Header("Telegraph & Recovery")]
-    [Tooltip("Tiempo de preparaciÛn antes de atacar (telegrafÌa visible)")]
+    [Tooltip("Tiempo de preparaci√≥n antes de atacar (telegraf√≠a visible)")]
     [Range(0.5f, 3f)]
     public float prepareTime = 0.8f;
 
@@ -38,9 +42,9 @@ public class EnemyConfigBase : ScriptableObject
     public float recoverTime = 1.5f;
 
     [Header("Visual Feedback")]
-    [Tooltip("Color del sprite durante preparaciÛn")]
+    [Tooltip("Color del sprite durante preparaci√≥n")]
     public Color telegraphColor = Color.yellow;
 
-    [Tooltip("Color del sprite durante recuperaciÛn")]
+    [Tooltip("Color del sprite durante recuperaci√≥n")]
     public Color recoverColor = Color.gray;
 }

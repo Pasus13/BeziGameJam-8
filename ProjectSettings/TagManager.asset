@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Proyectile
+  - Ground
+  - Wall
   layers:
   - Default
   - TransparentFX

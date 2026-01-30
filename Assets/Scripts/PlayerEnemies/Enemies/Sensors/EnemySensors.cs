@@ -1,27 +1,35 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// Sistema de sensores para detectar al jugador.
-/// Maneja detección por rango, line of sight y detección de idle (para Flyer).
+/// Sensor system for detecting the player.
+/// Handles range detection, line of sight, and idle detection (for Flyer).
+/// UPDATED: Proper obstacle-aware line of sight detection
 /// </summary>
 public class EnemySensors : MonoBehaviour
 {
     [Header("Configuration")]
     [SerializeField] private EnemyConfigBase config;
 
+    [Header("Line of Sight")]
+    [Tooltip("Layers that block line of sight (e.g., Ground, Wall, Platform)")]
+    [SerializeField] private LayerMask obstacleMask;
+
+    [Header("Debug")]
+    [SerializeField] private bool showDebugRays = true;
+
     private Transform player;
     private Vector2 lastPlayerPosition;
     private float idleTimer;
 
-    /// <summary>Posición actual del jugador</summary>
+    /// <summary>Current player position</summary>
     public Vector2 PlayerPosition => player != null ? player.position : Vector2.zero;
 
-    /// <summary>Última posición registrada del jugador</summary>
+    /// <summary>Last recorded player position</summary>
     public Vector2 LastPlayerPosition => lastPlayerPosition;
 
     private void Awake()
     {
-        // Buscar al jugador
+        // Find player
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
@@ -29,13 +37,20 @@ public class EnemySensors : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"EnemySensors on {gameObject.name}: No se encontró jugador con tag 'Player'");
+            Debug.LogWarning($"EnemySensors on {gameObject.name}: Player with tag 'Player' not found");
+        }
+
+        // Set default obstacle mask if not configured
+        if (obstacleMask == 0)
+        {
+            obstacleMask = LayerMask.GetMask("Ground", "Wall", "Platform");
+            Debug.LogWarning($"EnemySensors: obstacleMask not set, using default (Ground, Wall, Platform)");
         }
     }
 
     private void Start()
     {
-        // Obtener config si no está asignado
+        // Get config if not assigned
         if (config == null)
         {
             EnemyBrain brain = GetComponent<EnemyBrain>();
@@ -59,12 +74,12 @@ public class EnemySensors : MonoBehaviour
     {
         if (player == null) return;
 
-        // Actualizar detección de idle
+        // Update idle detection
         UpdateIdleDetection();
     }
 
     /// <summary>
-    /// Verifica si el jugador está dentro del rango de detección
+    /// Checks if player is within detection range
     /// </summary>
     public bool PlayerInRange(float range)
     {
@@ -75,59 +90,92 @@ public class EnemySensors : MonoBehaviour
     }
 
     /// <summary>
-    /// Verifica si hay línea de visión directa al jugador (sin obstáculos)
+    /// Checks if there's a clear line of sight to player (no obstacles blocking)
+    /// UPDATED: Now properly checks for obstacles instead of just player layer
     /// </summary>
     public bool PlayerInLineOfSight()
     {
-        if (player == null || config == null) return false;
+        if (player == null) return false;
 
-        Vector2 direction = player.position - transform.position;
+        Vector2 startPos = transform.position;
+        Vector2 targetPos = player.position;
+        Vector2 direction = targetPos - startPos;
         float distance = direction.magnitude;
 
-        // Raycast hacia el jugador
+        // Raycast to check for obstacles
         RaycastHit2D hit = Physics2D.Raycast(
-            transform.position,
+            startPos,
             direction.normalized,
             distance,
-            config.playerLayer
+            obstacleMask
         );
 
-        // Si el raycast golpea al jugador, hay línea de visión
-        return hit.collider != null && hit.collider.CompareTag("Player");
+        // If raycast hits something â†’ Vision is blocked
+        if (hit.collider != null)
+        {
+            if (showDebugRays)
+            {
+                Debug.DrawLine(startPos, hit.point, Color.red, 0.1f);
+            }
+            return false;
+        }
+
+        // Clear path to player
+        if (showDebugRays)
+        {
+            Debug.DrawLine(startPos, targetPos, Color.green, 0.1f);
+        }
+        return true;
     }
 
     /// <summary>
-    /// Actualiza el temporizador de idle del jugador
+    /// Unified detection check (range + line of sight)
+    /// </summary>
+    /// <param name="range">Detection range</param>
+    /// <param name="requireLineOfSight">If true, requires clear vision path</param>
+    /// <returns>True if player can be detected</returns>
+    public bool CanDetectPlayer(float range, bool requireLineOfSight = true)
+    {
+        if (player == null) return false;
+
+        // Check distance first (cheaper operation)
+        if (!PlayerInRange(range))
+            return false;
+
+        // Then check line of sight if required
+        if (requireLineOfSight && !PlayerInLineOfSight())
+            return false;
+
+        return true;
+    }
+
+    /// <summary>
+    /// Updates idle detection timer
     /// </summary>
     private void UpdateIdleDetection()
     {
         Vector2 currentPos = player.position;
         float movement = Vector2.Distance(currentPos, lastPlayerPosition);
 
-        // Solo para FlyerEnemyConfig
+        // Only for FlyerEnemyConfig
         if (config is FlyerEnemyConfig flyerConfig)
         {
-            // Si el movimiento es menor al umbral, incrementar timer
+            // If movement is less than threshold, increment timer
             if (movement < flyerConfig.idlePositionThreshold)
             {
                 idleTimer += Time.deltaTime;
             }
             else
             {
-                // Si se movió, resetear timer
+                // Player is moving, reset timer
                 idleTimer = 0f;
                 lastPlayerPosition = currentPos;
             }
         }
-        else
-        {
-            // Para otros enemigos, solo actualizar posición
-            lastPlayerPosition = currentPos;
-        }
     }
 
     /// <summary>
-    /// Verifica si el jugador está idle (quieto)
+    /// Checks if player is idle (for Flyer detection)
     /// </summary>
     public bool PlayerIsIdle()
     {
@@ -135,19 +183,12 @@ public class EnemySensors : MonoBehaviour
         {
             return idleTimer >= flyerConfig.idleDetectionTime;
         }
+
         return false;
     }
 
     /// <summary>
-    /// Obtiene el tiempo que el jugador ha estado idle
-    /// </summary>
-    public float GetIdleTime()
-    {
-        return idleTimer;
-    }
-
-    /// <summary>
-    /// Resetea el temporizador de idle
+    /// Resets idle detection timer
     /// </summary>
     public void ResetIdleTimer()
     {
@@ -160,28 +201,25 @@ public class EnemySensors : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if (config == null) return;
+        if (player == null || config == null) return;
 
-        // Dibujar rango de detección
+        Vector2 enemyPos = transform.position;
+        Vector2 playerPos = player.position;
+
+        // Draw line to player (green if clear, red if blocked)
+        bool hasLOS = PlayerInLineOfSight();
+        Gizmos.color = hasLOS ? Color.green : Color.red;
+        Gizmos.DrawLine(enemyPos, playerPos);
+
+        // Draw detection range circle
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, config.detectionRange);
+#if UNITY_EDITOR
+        UnityEditor.Handles.color = new Color(1f, 1f, 0f, 0.1f);
+        UnityEditor.Handles.DrawSolidDisc(enemyPos, Vector3.forward, config.detectionRange);
 
-        // Dibujar línea al jugador si está en rango
-        if (player != null && PlayerInRange(config.detectionRange))
-        {
-            Gizmos.color = PlayerInLineOfSight() ? Color.green : Color.red;
-            Gizmos.DrawLine(transform.position, player.position);
-        }
-
-        // Para Flyer, mostrar info de idle
-        if (config is FlyerEnemyConfig && player != null)
-        {
-            if (PlayerIsIdle())
-            {
-                // Dibujar círculo rojo si el jugador está idle
-                Gizmos.color = Color.red;
-                Gizmos.DrawWireSphere(player.position, 0.5f);
-            }
-        }
+        Gizmos.color = Color.yellow;
+        UnityEditor.Handles.color = Color.yellow;
+        UnityEditor.Handles.DrawWireDisc(enemyPos, Vector3.forward, config.detectionRange);
+#endif
     }
 }

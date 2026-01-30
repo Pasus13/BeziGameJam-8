@@ -111,3 +111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChargeAttack
   config: {fileID: 11400000, guid: 12125bbace9cdaa4cbd9da046ec2542f, type: 2}
   showDebugLogs: 0
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 320

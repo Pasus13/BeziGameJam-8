@@ -9,6 +9,7 @@ public class RecoverState : IEnemyState
     private EnemyContext context;
     private EnemyBrain brain;
     private float recoverTimer;
+    private float recoverTime;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
 
@@ -22,6 +23,7 @@ public class RecoverState : IEnemyState
     {
         Debug.Log($"<color=gray>[{context.Enemy.name}]</color> 😵 <b>RECUPERÁNDOSE</b> (Ventana de castigo)");
 
+        recoverTime = context.Config.recoverTime;
         recoverTimer = 0f;
 
         // Detener movimiento
@@ -40,10 +42,19 @@ public class RecoverState : IEnemyState
         // Quedarse quieto durante recuperación
         context.Movement.Stop();
 
-        // Transición: Volver a patrulla tras recuperarse
-        if (recoverTimer >= context.Config.recoverTime)
+        // After recover time, transition to next state
+        if (recoverTimer >= recoverTime)
         {
-            brain.ChangeState(new PatrolState(context, brain));
+            // For Flyer: Go to AscendState
+            if (context.Config is FlyerEnemyConfig)
+            {
+                brain.ChangeState(new AscendState(context, brain));
+            }
+            // For other enemies: Go directly to PatrolState
+            else
+            {
+                brain.ChangeState(new PatrolState(context, brain));
+            }
         }
     }
 

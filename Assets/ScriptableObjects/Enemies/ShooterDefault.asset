@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ShooterDefault
   m_EditorClassIdentifier: Assembly-CSharp::ShooterEnemyConfig
   patrolSpeed: 1.5
+  maxPatrolWidth: 10
   chaseSpeed: 3
   detectionRange: 8
   playerLayer:
@@ -25,9 +26,9 @@ MonoBehaviour:
   telegraphColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   recoverColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   projectilePrefab: {fileID: 3473751912084621934, guid: 8a31f68bea90db547ac9134553f3a59c, type: 3}
-  projectileSpeed: 6
-  arcHeight: 3
-  aimTime: 1.5
+  projectileSpeed: 12
+  arcHeight: 1
+  aimTime: 1
   shootCooldown: 4.5
   projectileDamage: 2
   projectileLifetime: 5

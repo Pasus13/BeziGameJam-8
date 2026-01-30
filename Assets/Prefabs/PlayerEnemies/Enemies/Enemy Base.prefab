@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4803853259156958752}
   - component: {fileID: 2051345361285499905}
   - component: {fileID: 2978658623414730965}
+  - component: {fileID: 56418707497697623}
   m_Layer: 0
   m_Name: Enemy Base
   m_TagString: Enemy
@@ -252,3 +253,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySensors
   config: {fileID: 0}
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
+  showDebugRays: 1
+--- !u!114 &56418707497697623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250174970550048140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8070aa99a0aef9f468d482bfb05deee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlatformDetector
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  maxRaycastDistance: 50
+  groundCheckDistance: 1
+  raycastStep: 0.5
+  showDebugLogs: 0
+  showGizmos: 1

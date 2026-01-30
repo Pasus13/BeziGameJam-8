@@ -12,6 +12,9 @@ public class DiveAttack : MonoBehaviour, IAttack
     [Header("Debug")]
     [SerializeField] private bool showDebugLogs = false;
 
+    [Header("Collision Detection")]
+    [SerializeField] private LayerMask obstacleLayer;
+
     private Rigidbody2D rb;
     private bool isDiving;
     private Vector2 diveTarget;
@@ -26,6 +29,11 @@ public class DiveAttack : MonoBehaviour, IAttack
         if (rb == null)
         {
             Debug.LogError($"DiveAttack on {gameObject.name}: No se encontró Rigidbody2D!");
+        }
+
+        if (obstacleLayer == 0)
+        {
+            obstacleLayer = LayerMask.GetMask("Ground", "Wall", "Platform");
         }
     }
 
@@ -116,6 +124,20 @@ public class DiveAttack : MonoBehaviour, IAttack
     public void CancelAttack()
     {
         StopDive();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!isDiving) return;
+
+        int collisionLayer = collision.gameObject.layer;
+
+        // Check if layer is in obstacle mask
+        if (((1 << collisionLayer) & obstacleLayer) != 0)
+        {
+            Debug.Log($"💥 Collision with {collision.gameObject.name}!");
+            StopDive();
+        }
     }
 
     private void OnDrawGizmosSelected()

@@ -13,18 +13,19 @@ MonoBehaviour:
   m_Name: ChargeDefault
   m_EditorClassIdentifier: Assembly-CSharp::ChargeEnemyConfig
   patrolSpeed: 2
+  maxPatrolWidth: 6
   chaseSpeed: 4
   detectionRange: 6
   playerLayer:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 256
   contactDamage: 1
   contactDamageCooldown: 1
   prepareTime: 1
   recoverTime: 2
   telegraphColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   recoverColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  chargeSpeed: 8
+  chargeSpeed: 6
   chargeMaxDistance: 10
   chargeMaxDuration: 2
   chargeCooldown: 3.5
