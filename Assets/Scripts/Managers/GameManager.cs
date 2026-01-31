@@ -6,21 +6,26 @@ public class GameManager : MonoBehaviour
     public State CurrentState { get; private set; } = State.Playing;
 
     [Header("References")]
-    // Ya no necesitamos HealthSystem en el sistema sin vidas
-    // [SerializeField] private HealthSystem healthSystem;
-    [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private PlayerHealth playerHealth;
-    [SerializeField] private PlayerCombat playerCombat;
-    [SerializeField] private MagicSystem magicSystem;
+    [SerializeField] private GameObject player;
     [SerializeField] private ModifierManager modifierManager;
 
+    private PlayerMovement playerMovement;
+    private PlayerHealth playerHealth;
+    private PlayerCombat playerCombat;
+    private MagicSystem magicSystem;
     private ModifierData[] _currentOptions;
     private ModifierOffer[] _currentOffers;
 
-    // Ya no exponemos HealthSystem
-    // public HealthSystem HealthSystem => healthSystem;
     public PlayerMovement PlayerMovement => playerMovement;
+    public GameObject Player => player;
 
+    private void Start()
+    {
+        playerHealth = player.GetComponent<PlayerHealth>();
+        playerCombat = player.GetComponent<PlayerCombat>();
+        magicSystem = player.GetComponent<MagicSystem>();
+        playerMovement = player.GetComponent<PlayerMovement>();
+    }
     public void OnLevelCompleted()
     {
         CurrentState = State.ChoosingModifier;

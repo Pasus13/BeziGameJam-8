@@ -11,8 +11,20 @@ public class PlayerMovementStats : ScriptableObject
     [Range(0.25f, 50f)] public float AirDeceleration = 5f;
 
 
-    [Header("Run")]
-    [Range(1f, 100f)] public float MaxRunSpeed = 20f;
+    [Header("Dash")]
+    public bool DashEnabled = true;
+    [Tooltip("Velocidad del dash (antes de multiplicadores).")]
+    [Range(1f, 100f)] public float DashSpeed = 25f;
+    [Tooltip("Duración del dash en segundos.")]
+    [Range(0.05f, 0.5f)] public float DashDuration = 0.15f;
+    [Tooltip("Cooldown del dash en segundos.")]
+    [Range(0f, 2f)] public float DashCooldown = 0.5f;
+    [Tooltip("Permitir dash en el aire.")]
+    public bool DashAllowInAir = true;
+    [Tooltip("Si true, el dash pone VerticalVelocity=0 al empezar.")]
+    public bool DashCancelVerticalVelocity = true;
+    [Tooltip("Si true, el dash es solo horizontal (recomendado en plataformas).")]
+    public bool DashOnlyHorizontal = true;
 
     [Header("Grounded/Collision Checks")]
     public LayerMask GroundLayer;

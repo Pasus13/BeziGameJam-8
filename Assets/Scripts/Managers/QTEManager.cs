@@ -17,12 +17,15 @@ public class QTEManager : MonoBehaviour
     public event Action<int> OnQTEComplete;
     
     private List<QTEButton> qteButtons;
-    private int currentButtonIndex;
-    private float currentProgress;
-    private bool isQTEActive;
-    private int totalScore;
-    private float qteTimer;
     private QTEVisualizer visualizer;
+
+    private int currentButtonIndex;
+    private int totalScore;
+    private float currentProgress;
+    private float qteTimer;
+    private float perfectZoneMultiplier = 1f;  // Modified by modifiers
+    private float goodZoneMultiplier = 1f;     // Modified by modifiers
+    private bool isQTEActive;
 
     private void Awake()
     {
@@ -129,18 +132,22 @@ public class QTEManager : MonoBehaviour
     private int EvaluateHit(float targetPosition)
     {
         float distance = Mathf.Abs(currentProgress - targetPosition);
-        
-        if (distance <= perfectZoneSize)
+
+        // Apply multipliers to zone sizes
+        float effectivePerfectZone = perfectZoneSize * perfectZoneMultiplier;
+        float effectiveGoodZone = goodZoneSize * goodZoneMultiplier;
+
+        if (distance <= effectivePerfectZone)
         {
-            return 3;
+            return 3; // Perfect
         }
-        else if (distance <= goodZoneSize)
+        else if (distance <= effectiveGoodZone)
         {
-            return 1;
+            return 1; // Good
         }
         else
         {
-            return 0;
+            return 0; // Miss
         }
     }
 
@@ -198,6 +205,40 @@ public class QTEManager : MonoBehaviour
     public int GetCurrentButtonIndex()
     {
         return currentButtonIndex;
+    }
+
+    /// <summary>
+    /// Get current perfect zone size multiplier (for modifiers)
+    /// </summary>
+    public float GetPerfectZoneMultiplier()
+    {
+        return perfectZoneMultiplier;
+    }
+
+    /// <summary>
+    /// Set perfect zone size multiplier (for modifiers)
+    /// </summary>
+    public void SetPerfectZoneMultiplier(float multiplier)
+    {
+        perfectZoneMultiplier = Mathf.Max(0.1f, multiplier); // Min 0.1x (10% of normal)
+        Debug.Log($"<color=magenta>[QTEManager]</color> Perfect zone multiplier: {perfectZoneMultiplier:F2}x");
+    }
+
+    /// <summary>
+    /// Get current good zone size multiplier (for modifiers - optional)
+    /// </summary>
+    public float GetGoodZoneMultiplier()
+    {
+        return goodZoneMultiplier;
+    }
+
+    /// <summary>
+    /// Set good zone size multiplier (for modifiers - optional)
+    /// </summary>
+    public void SetGoodZoneMultiplier(float multiplier)
+    {
+        goodZoneMultiplier = Mathf.Max(0.1f, multiplier);
+        Debug.Log($"<color=magenta>[QTEManager]</color> Good zone multiplier: {goodZoneMultiplier:F2}x");
     }
 }
 

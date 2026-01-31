@@ -9,7 +9,8 @@ public class MagicSystem : MonoBehaviour
     [Header("Available Spells")]
     [SerializeField] private List<MagicSpellData> availableSpells = new List<MagicSpellData>();
     [SerializeField] private int currentSpellIndex = 0;
-    
+
+    private float cooldownMultiplier = 1f;
     private float cooldownTimer;
     private PlayerMovement playerMovement;
 
@@ -83,8 +84,8 @@ public class MagicSystem : MonoBehaviour
         }
         
         QTEManager.Instance.StartQTE(buttons);
-        
-        cooldownTimer = magicCooldown * spell.cooldownMultiplier;
+
+        cooldownTimer = magicCooldown * spell.cooldownMultiplier * cooldownMultiplier;
     }
 
     private void OnQTECompleted(int score)
@@ -293,6 +294,23 @@ public class MagicSystem : MonoBehaviour
             return "Sin magia";
         
         return availableSpells[currentSpellIndex].spellName;
+    }
+
+    /// <summary>
+    /// Get current cooldown multiplier (for modifiers)
+    /// </summary>
+    public float GetCooldownMultiplier()
+    {
+        return cooldownMultiplier;
+    }
+
+    /// <summary>
+    /// Set cooldown multiplier (for modifiers)
+    /// </summary>
+    public void SetCooldownMultiplier(float multiplier)
+    {
+        cooldownMultiplier = Mathf.Max(0.1f, multiplier); // Min 0.1x (10% of normal)
+        Debug.Log($"<color=magenta>[MagicSystem]</color> Cooldown multiplier: {cooldownMultiplier:F2}x");
     }
 
     /// Resetea el sistema de magia a su estado inicial

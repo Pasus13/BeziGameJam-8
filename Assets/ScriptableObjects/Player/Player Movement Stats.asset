@@ -17,7 +17,13 @@ MonoBehaviour:
   GroundDeceleration: 20
   AirAceleration: 5
   AirDeceleration: 5
-  MaxRunSpeed: 20
+  DashEnabled: 1
+  DashSpeed: 20
+  DashDuration: 0.1
+  DashCooldown: 0.5
+  DashAllowInAir: 1
+  DashCancelVerticalVelocity: 1
+  DashOnlyHorizontal: 1
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64

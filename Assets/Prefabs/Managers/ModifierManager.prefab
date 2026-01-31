@@ -46,9 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ModifierManager
   allModifiers:
   - {fileID: 11400000, guid: db947e99aac3db2448bc06d3382e5261, type: 2}
-  - {fileID: 11400000, guid: f6d2b5bd58226ab48835abeb3575fed6, type: 2}
-  - {fileID: 11400000, guid: 251614c057f52f942baa05e728a73879, type: 2}
+  - {fileID: 11400000, guid: e1c20dbb503b69243b6ad9f5c7de812d, type: 2}
   - {fileID: 11400000, guid: 5a61cd8d35e388b418a013cf9d21d569, type: 2}
+  - {fileID: 11400000, guid: f6d2b5bd58226ab48835abeb3575fed6, type: 2}
+  - {fileID: 11400000, guid: 182db2e8cb852e24791608b8f8c183bd, type: 2}
+  - {fileID: 11400000, guid: 251614c057f52f942baa05e728a73879, type: 2}
+  - {fileID: 11400000, guid: 881934da879658d4abd007aebf9625ad, type: 2}
   recipesForButtons:
   - {fileID: 11400000, guid: 006e88b144e74b74db37c0a668d05161, type: 2}
   - {fileID: 11400000, guid: 7cfefb7ca25891a40b34b9816985ee39, type: 2}

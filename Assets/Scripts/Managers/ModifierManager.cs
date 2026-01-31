@@ -43,9 +43,6 @@ public class ModifierManager : MonoBehaviour
                 case ModifierType.Bad:
                     _bad.Add(m);
                     break;
-                case ModifierType.Neutral:
-                    _neutral.Add(m);
-                    break;
             }
         }
     }

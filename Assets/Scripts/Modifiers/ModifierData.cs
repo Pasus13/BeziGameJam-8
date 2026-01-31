@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class ModifierData : ScriptableObject
 {
-    public enum ModifierType { Good, Bad, Neutral }
+    public enum ModifierType { Good, Bad}
 
     public ModifierType Type;
 
