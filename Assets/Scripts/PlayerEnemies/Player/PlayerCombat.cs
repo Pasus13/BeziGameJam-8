@@ -23,7 +23,7 @@ public class PlayerCombat : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (attackTimer > 0)
         {
@@ -35,7 +35,7 @@ public class PlayerCombat : MonoBehaviour
             PerformAttack();
             attackTimer = attackCooldown;
         }
-    }
+    }*/
 
     private void PerformAttack()
     {

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bigger QTE Buttons 30
   m_EditorClassIdentifier: Assembly-CSharp::BiggerQTEButtons
   Type: 0
-  Title: 
-  Description: 
+  Title: Bigger Magic Buttons
+  Description: Buttons in Magic QTE are 20% bigger
   zoneIncreasePercentage: 30
   alsoIncreaseGoodZone: 0
-  goodZoneIncreasePercentage: 20
+  goodZoneIncreasePercentage: 30

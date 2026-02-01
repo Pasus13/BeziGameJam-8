@@ -10,7 +10,6 @@ public class InputManager : MonoBehaviour
     public static bool JumpIsHeld;
     public static bool JumpWasReleased;
     public static bool DashIsPressed;
-    public static bool AttackWasPressed;
     public static bool MagicWasPressed;
     public static bool Magic1WasPressed;
     public static bool Magic2WasPressed;
@@ -23,7 +22,6 @@ public class InputManager : MonoBehaviour
     private InputAction _moveAction;
     private InputAction _jumpAction;
     private InputAction _dashAction;
-    private InputAction _attackAction;
     private InputAction _magic1Action;
     private InputAction _magic2Action;
     private InputAction _magic3Action;
@@ -47,7 +45,6 @@ public class InputManager : MonoBehaviour
             _moveAction = PlayerInput.actions["Move"];
             _jumpAction = PlayerInput.actions["Jump"];
             _dashAction  = PlayerInput.actions["Dash"];
-            _attackAction = PlayerInput.actions["Attack"];
             
             _magic1Action = TryGetAction("Magic1");
             _magic2Action = TryGetAction("Magic2");
@@ -85,7 +82,6 @@ public class InputManager : MonoBehaviour
 
             DashIsPressed = _dashAction.IsPressed();
             
-            AttackWasPressed = _attackAction.WasPressedThisFrame();
             Magic1WasPressed = _magic1Action != null && _magic1Action.WasPressedThisFrame();
             Magic2WasPressed = _magic2Action != null && _magic2Action.WasPressedThisFrame();
             Magic3WasPressed = _magic3Action != null && _magic3Action.WasPressedThisFrame();

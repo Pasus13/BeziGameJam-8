@@ -3651,17 +3651,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5549055105974838881, guid: d59e438a8dd0db742857fdd513ef96db, type: 3}
   m_PrefabInstance: {fileID: 909048282}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1665460461 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8890412108441302758, guid: d59e438a8dd0db742857fdd513ef96db, type: 3}
-  m_PrefabInstance: {fileID: 909048282}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665460460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acacb128c9e67ac43af348e18d5b7ff1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
 --- !u!114 &1665460462 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5328931465682474470, guid: d59e438a8dd0db742857fdd513ef96db, type: 3}
@@ -4446,7 +4435,7 @@ PrefabInstance:
     - target: {fileID: 5847113469886818675, guid: 6406d1b5d69447847b23bca356c737b1, type: 3}
       propertyPath: playerCombat
       value: 
-      objectReference: {fileID: 1665460461}
+      objectReference: {fileID: 0}
     - target: {fileID: 5847113469886818675, guid: 6406d1b5d69447847b23bca356c737b1, type: 3}
       propertyPath: playerHealth
       value: 
