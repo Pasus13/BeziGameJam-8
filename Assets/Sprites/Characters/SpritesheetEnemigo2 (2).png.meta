@@ -1,0 +1,469 @@
+fileFormatVersion: 2
+guid: 9a334003ee9407c4892f82dacc1f4dfc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 794907122730459140
+    second: SpritesheetEnemigo2 (2)_0
+  - first:
+      213: -3180414849626083746
+    second: SpritesheetEnemigo2 (2)_1
+  - first:
+      213: 660221797918721412
+    second: SpritesheetEnemigo2 (2)_2
+  - first:
+      213: 2619957245227066300
+    second: SpritesheetEnemigo2 (2)_3
+  - first:
+      213: -2933256776438176771
+    second: SpritesheetEnemigo2 (2)_4
+  - first:
+      213: 6862378539154606183
+    second: SpritesheetEnemigo2 (2)_5
+  - first:
+      213: -6817882922049587027
+    second: SpritesheetEnemigo2 (2)_6
+  - first:
+      213: -4243824575758913063
+    second: SpritesheetEnemigo2 (2)_7
+  - first:
+      213: 5965179460565666702
+    second: SpritesheetEnemigo2 (2)_8
+  - first:
+      213: 1313304825131869160
+    second: SpritesheetEnemigo2 (2)_9
+  - first:
+      213: -7584073237633146867
+    second: SpritesheetEnemigo2 (2)_10
+  - first:
+      213: 1913365541881583091
+    second: SpritesheetEnemigo2 (2)_11
+  - first:
+      213: 3897443820050470799
+    second: SpritesheetEnemigo2 (2)_12
+  - first:
+      213: 517337116260823589
+    second: SpritesheetEnemigo2 (2)_13
+  - first:
+      213: 4841541054497025673
+    second: SpritesheetEnemigo2 (2)_14
+  - first:
+      213: -7705466836978162585
+    second: SpritesheetEnemigo2 (2)_15
+  - first:
+      213: 3904076769656511040
+    second: SpritesheetEnemigo2 (2)_16
+  - first:
+      213: 1847617005499676749
+    second: SpritesheetEnemigo2 (2)_17
+  - first:
+      213: 4157850029417038483
+    second: SpritesheetEnemigo2 (2)_18
+  - first:
+      213: 1759833315159335467
+    second: SpritesheetEnemigo2 (2)_19
+  - first:
+      213: 2574106877310481714
+    second: SpritesheetEnemigo2 (2)_20
+  - first:
+      213: 7420513217040757659
+    second: SpritesheetEnemigo2 (2)_21
+  - first:
+      213: -22862541883079911
+    second: SpritesheetEnemigo2 (2)_22
+  - first:
+      213: 8338564120701089359
+    second: SpritesheetEnemigo2 (2)_23
+  - first:
+      213: -3668612263848109246
+    second: SpritesheetEnemigo2 (2)_24
+  - first:
+      213: 4547884895252296563
+    second: SpritesheetEnemigo2 (2)_25
+  - first:
+      213: 7455969466798291230
+    second: SpritesheetEnemigo2 (2)_26
+  - first:
+      213: 1857840644500705217
+    second: SpritesheetEnemigo2 (2)_27
+  - first:
+      213: -827134893160351622
+    second: SpritesheetEnemigo2 (2)_28
+  - first:
+      213: 6352143129203401411
+    second: SpritesheetEnemigo2 (2)_29
+  - first:
+      213: -7773889775721609848
+    second: SpritesheetEnemigo2 (2)_30
+  - first:
+      213: -4432824002226775082
+    second: SpritesheetEnemigo2 (2)_31
+  - first:
+      213: 1283283609179085393
+    second: SpritesheetEnemigo2 (2)_32
+  - first:
+      213: -3463412137948041226
+    second: SpritesheetEnemigo2 (2)_33
+  - first:
+      213: -374651183585261386
+    second: SpritesheetEnemigo2 (2)_34
+  - first:
+      213: -7412012040325675950
+    second: SpritesheetEnemigo2 (2)_35
+  - first:
+      213: -1228529931789139426
+    second: SpritesheetEnemigo2 (2)_36
+  - first:
+      213: -4410709080756691466
+    second: SpritesheetEnemigo2 (2)_37
+  - first:
+      213: -2465807135794558950
+    second: SpritesheetEnemigo2 (2)_38
+  - first:
+      213: -5652141716408279013
+    second: SpritesheetEnemigo2 (2)_39
+  - first:
+      213: -4140782300325012366
+    second: SpritesheetEnemigo2 (2)_40
+  - first:
+      213: 8158111287354418300
+    second: SpritesheetEnemigo2 (2)_41
+  - first:
+      213: -3105840151271985192
+    second: SpritesheetEnemigo2 (2)_42
+  - first:
+      213: -455829230064981720
+    second: SpritesheetEnemigo2 (2)_43
+  - first:
+      213: -465720346268295940
+    second: SpritesheetEnemigo2 (2)_44
+  - first:
+      213: 484612111017277495
+    second: SpritesheetEnemigo2 (2)_45
+  - first:
+      213: -5643896335555892715
+    second: SpritesheetEnemigo2 (2)_46
+  - first:
+      213: -488101207688800575
+    second: SpritesheetEnemigo2 (2)_47
+  - first:
+      213: 5481409847916241783
+    second: SpritesheetEnemigo2 (2)_48
+  - first:
+      213: -8472974442741948618
+    second: SpritesheetEnemigo2 (2)_49
+  - first:
+      213: 7977269403284439935
+    second: SpritesheetEnemigo2 (2)_50
+  - first:
+      213: 6348256576036001404
+    second: SpritesheetEnemigo2 (2)_51
+  - first:
+      213: -1044824836896840768
+    second: SpritesheetEnemigo2 (2)_52
+  - first:
+      213: -156293466696990563
+    second: SpritesheetEnemigo2 (2)_53
+  - first:
+      213: 8553491933185677238
+    second: SpritesheetEnemigo2 (2)_54
+  - first:
+      213: 5683490739285068975
+    second: SpritesheetEnemigo2 (2)_55
+  - first:
+      213: 5082446430931566927
+    second: SpritesheetEnemigo2 (2)_56
+  - first:
+      213: 237037257102974562
+    second: SpritesheetEnemigo2 (2)_57
+  - first:
+      213: -1565350340062263998
+    second: SpritesheetEnemigo2 (2)_58
+  - first:
+      213: -1440218201244911648
+    second: SpritesheetEnemigo2 (2)_59
+  - first:
+      213: -7425811950438608669
+    second: SpritesheetEnemigo2 (2)_60
+  - first:
+      213: -7187167096617243709
+    second: SpritesheetEnemigo2 (2)_61
+  - first:
+      213: -5511746798609204908
+    second: SpritesheetEnemigo2 (2)_62
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpritesheetEnemigo2 (2)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 882
+        width: 393
+        height: 441
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 400e6c701d3180b00800000000000000
+      internalID: 794907122730459140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritesheetEnemigo2 (2)_1
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 882
+        width: 393
+        height: 441
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5ee8a97b85ecd3d0800000000000000
+      internalID: -3180414849626083746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritesheetEnemigo2 (2)_2
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 882
+        width: 393
+        height: 441
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4854ae92a34992900800000000000000
+      internalID: 660221797918721412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritesheetEnemigo2 (2)_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 441
+        width: 393
+        height: 441
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb36870cb35fb5420800000000000000
+      internalID: 2619957245227066300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritesheetEnemigo2 (2)_4
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 441
+        width: 393
+        height: 441
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df3256db08afa47d0800000000000000
+      internalID: -2933256776438176771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritesheetEnemigo2 (2)_5
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 441
+        width: 393
+        height: 441
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76803944ce01c3f50800000000000000
+      internalID: 6862378539154606183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritesheetEnemigo2 (2)_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 393
+        height: 441
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da83807ea930261a0800000000000000
+      internalID: -6817882922049587027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 00706e458ad0ded45a920455d66640b0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":3.0},"gridSpriteSize":{"x":393.0,"y":441.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SpritesheetEnemigo2 (2)_0: 794907122730459140
+      SpritesheetEnemigo2 (2)_1: -3180414849626083746
+      SpritesheetEnemigo2 (2)_2: 660221797918721412
+      SpritesheetEnemigo2 (2)_3: 2619957245227066300
+      SpritesheetEnemigo2 (2)_4: -2933256776438176771
+      SpritesheetEnemigo2 (2)_5: 6862378539154606183
+      SpritesheetEnemigo2 (2)_6: -6817882922049587027
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

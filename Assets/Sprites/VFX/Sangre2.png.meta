@@ -1,0 +1,318 @@
+fileFormatVersion: 2
+guid: 556b375b14358ab48bb147203d0926bb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4362676734088480059
+    second: Sangre2_0
+  - first:
+      213: 5784619597120803966
+    second: Sangre2_1
+  - first:
+      213: -3483285634797534466
+    second: Sangre2_2
+  - first:
+      213: -4666721483701608790
+    second: Sangre2_3
+  - first:
+      213: -4250697941913221764
+    second: Sangre2_4
+  - first:
+      213: -6218497524173576958
+    second: Sangre2_5
+  - first:
+      213: 1143104529958178754
+    second: Sangre2_6
+  - first:
+      213: 3389507961624297721
+    second: Sangre2_7
+  - first:
+      213: -2952585351113766954
+    second: Sangre2_8
+  - first:
+      213: 5312508428644034201
+    second: Sangre2_9
+  - first:
+      213: 7423843580206605459
+    second: Sangre2_10
+  - first:
+      213: 2952469420317128562
+    second: Sangre2_11
+  - first:
+      213: -2869456766323657895
+    second: Sangre2_12
+  - first:
+      213: 3847397125407970531
+    second: Sangre2_13
+  - first:
+      213: 3105417689397246199
+    second: Sangre2_14
+  - first:
+      213: 5417971646772259402
+    second: Sangre2_15
+  - first:
+      213: -8767962753978633996
+    second: Sangre2_16
+  - first:
+      213: -2926464367982736556
+    second: Sangre2_17
+  - first:
+      213: -7568162246846944815
+    second: Sangre2_18
+  - first:
+      213: -696210904504061481
+    second: Sangre2_19
+  - first:
+      213: -3941450543290468322
+    second: Sangre2_20
+  - first:
+      213: 6631212329652179755
+    second: Sangre2_21
+  - first:
+      213: -7943793361246967419
+    second: Sangre2_22
+  - first:
+      213: 5067807313799665785
+    second: Sangre2_23
+  - first:
+      213: 7042723081760649015
+    second: Sangre2_24
+  - first:
+      213: 7295460500858410923
+    second: Sangre2_25
+  - first:
+      213: -8820998339365541999
+    second: Sangre2_26
+  - first:
+      213: 8389967323214276624
+    second: Sangre2_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sangre2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 421
+        width: 630
+        height: 421
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b35843d00675b8c30800000000000000
+      internalID: 4362676734088480059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre2_1
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 421
+        width: 630
+        height: 421
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e74162710e8174050800000000000000
+      internalID: 5784619597120803966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre2_2
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 421
+        width: 630
+        height: 421
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef20cae9b22e8afc0800000000000000
+      internalID: -3483285634797534466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre2_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 630
+        height: 421
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aae184239897c3fb0800000000000000
+      internalID: -4666721483701608790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sangre2_4
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 0
+        width: 630
+        height: 421
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7547c43ebc7205c0800000000000000
+      internalID: -4250697941913221764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: eaddfbf29c951cf4297ea9bbda5b4ac4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":2.0},"gridSpriteSize":{"x":630.0,"y":421.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Sangre2_0: 4362676734088480059
+      Sangre2_1: 5784619597120803966
+      Sangre2_2: -3483285634797534466
+      Sangre2_3: -4666721483701608790
+      Sangre2_4: -4250697941913221764
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

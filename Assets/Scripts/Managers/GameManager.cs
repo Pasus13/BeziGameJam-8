@@ -2,6 +2,8 @@
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+
     public enum State { Playing, ChoosingModifier, GameOver }
     public State CurrentState { get; private set; } = State.Playing;
 
@@ -18,6 +20,18 @@ public class GameManager : MonoBehaviour
 
     public PlayerMovement PlayerMovement => playerMovement;
     public GameObject Player => player;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -153,8 +167,42 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.PlayBattleMusic();
     }
 
-    public void ReturnToMenu()
+    /// <summary>
+    /// Called when game starts from menu
+    /// </summary>
+    public void OnGameStarted()
     {
+        Debug.Log("<color=green>[GameManager]</color> Game started, initializing...");
+
+        // Start wave system
+        if (WaveManager.Instance != null)
+            WaveManager.Instance.StartWaves();
+
+        // Reset player health
+        if (player != null)
+        {
+            HealthComponent health = player.GetComponent<HealthComponent>();
+            if (health != null)
+                health.ResetHealth();
+        }
+    }
+
+    /// <summary>
+    /// Called when player dies
+    /// </summary>
+    public void OnPlayerDeath()
+    {
+        Debug.Log("<color=red>[GameManager]</color> Player died, returning to menu...");
+
+        // Wait a bit, then return to menu
+        Invoke(nameof(ReturnToMenu), 2f);
+    }
+
+    private void ReturnToMenu()
+    {
+        if (MenuManager.Instance != null)
+            MenuManager.Instance.ReturnToMainMenuFromGame();
+
         if (AudioManager.Instance != null)
             AudioManager.Instance.PlayMenuMusic();
     }

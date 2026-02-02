@@ -1,0 +1,369 @@
+fileFormatVersion: 2
+guid: f7f1d0a384dd1184fa9038fc5d239b01
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2638255743868747898
+    second: HollyBeam_0
+  - first:
+      213: 4127371702526694746
+    second: HollyBeam_1
+  - first:
+      213: 2643970675109713685
+    second: HollyBeam_2
+  - first:
+      213: 7614147102238934647
+    second: HollyBeam_3
+  - first:
+      213: -4635651583617103697
+    second: HollyBeam_4
+  - first:
+      213: 1315932179552771596
+    second: HollyBeam_5
+  - first:
+      213: -5803246396751794599
+    second: HollyBeam_6
+  - first:
+      213: -6104239270232113551
+    second: HollyBeam_7
+  - first:
+      213: -3292444597613816748
+    second: HollyBeam_8
+  - first:
+      213: -3251911280040154427
+    second: HollyBeam_9
+  - first:
+      213: -437405292219608011
+    second: HollyBeam_10
+  - first:
+      213: -6816593641052692682
+    second: HollyBeam_11
+  - first:
+      213: 5946456506027386844
+    second: HollyBeam_12
+  - first:
+      213: -3925796845874727728
+    second: HollyBeam_13
+  - first:
+      213: 1126496744013591618
+    second: HollyBeam_14
+  - first:
+      213: -2598685577104625690
+    second: HollyBeam_15
+  - first:
+      213: 2271697760865830130
+    second: HollyBeam_16
+  - first:
+      213: -3987362414430167564
+    second: HollyBeam_17
+  - first:
+      213: -8270543043758650235
+    second: HollyBeam_18
+  - first:
+      213: -7861943277167971933
+    second: HollyBeam_19
+  - first:
+      213: -534378509401379989
+    second: HollyBeam_20
+  - first:
+      213: 6465283216289047157
+    second: HollyBeam_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HollyBeam_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 249
+        width: 682
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a704ee7fe97fc9420800000000000000
+      internalID: 2638255743868747898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HollyBeam_1
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 249
+        width: 682
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a555a1912be574930800000000000000
+      internalID: 4127371702526694746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HollyBeam_2
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 249
+        width: 682
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 517d676125541b420800000000000000
+      internalID: 2643970675109713685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HollyBeam_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 125
+        width: 682
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7768580b272eaa960800000000000000
+      internalID: 7614147102238934647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HollyBeam_4
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 125
+        width: 682
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa88608027bdaafb0800000000000000
+      internalID: -4635651583617103697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HollyBeam_5
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 125
+        width: 682
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0e9fbe5851234210800000000000000
+      internalID: 1315932179552771596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HollyBeam_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 682
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95e2b89262ab67fa0800000000000000
+      internalID: -5803246396751794599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HollyBeam_7
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 1
+        width: 682
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17e33d1b9b2694ba0800000000000000
+      internalID: -6104239270232113551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0df8ac16e6838324c96896eb82702c8d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":3.0},"gridSpriteSize":{"x":682.0,"y":124.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      HollyBeam_0: 2638255743868747898
+      HollyBeam_1: 4127371702526694746
+      HollyBeam_2: 2643970675109713685
+      HollyBeam_3: 7614147102238934647
+      HollyBeam_4: -4635651583617103697
+      HollyBeam_5: 1315932179552771596
+      HollyBeam_6: -5803246396751794599
+      HollyBeam_7: -6104239270232113551
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

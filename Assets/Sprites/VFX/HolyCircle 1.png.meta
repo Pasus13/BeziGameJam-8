@@ -1,0 +1,627 @@
+fileFormatVersion: 2
+guid: eed4499f0184fff4aafa785497a71577
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2771748557047112555
+    second: HolyCircle 1_0
+  - first:
+      213: 6344138485552205952
+    second: HolyCircle 1_1
+  - first:
+      213: -74907391987752406
+    second: HolyCircle 1_2
+  - first:
+      213: -3569943233347145264
+    second: HolyCircle 1_3
+  - first:
+      213: -8488089781461512953
+    second: HolyCircle 1_4
+  - first:
+      213: 3763289924142047449
+    second: HolyCircle 1_5
+  - first:
+      213: 4888776287227477851
+    second: HolyCircle 1_6
+  - first:
+      213: -8994694118417755801
+    second: HolyCircle 1_7
+  - first:
+      213: -4428848847347308738
+    second: HolyCircle 1_8
+  - first:
+      213: 7001979792897256666
+    second: HolyCircle 1_9
+  - first:
+      213: 8306220555372868750
+    second: HolyCircle 1_10
+  - first:
+      213: 6211619114506017752
+    second: HolyCircle 1_11
+  - first:
+      213: 3980506806590662218
+    second: HolyCircle 1_12
+  - first:
+      213: -7044158493791753800
+    second: HolyCircle 1_13
+  - first:
+      213: 1986847644275854039
+    second: HolyCircle 1_14
+  - first:
+      213: 2524444128762785411
+    second: HolyCircle 1_15
+  - first:
+      213: 4513379318655783394
+    second: HolyCircle 1_16
+  - first:
+      213: 6460749395472092513
+    second: HolyCircle 1_17
+  - first:
+      213: -1388115232310536069
+    second: HolyCircle 1_18
+  - first:
+      213: -284881318477791970
+    second: HolyCircle 1_19
+  - first:
+      213: 5341188564203733679
+    second: HolyCircle 1_20
+  - first:
+      213: 4966219208930027024
+    second: HolyCircle 1_21
+  - first:
+      213: -1717472802191395755
+    second: HolyCircle 1_22
+  - first:
+      213: -4032991526524764723
+    second: HolyCircle 1_23
+  - first:
+      213: -8867663658629305899
+    second: HolyCircle 1_24
+  - first:
+      213: -4243694394928824888
+    second: HolyCircle 1_25
+  - first:
+      213: -6865915169295753606
+    second: HolyCircle 1_26
+  - first:
+      213: 8102129736609406185
+    second: HolyCircle 1_27
+  - first:
+      213: -1804669028505270199
+    second: HolyCircle 1_28
+  - first:
+      213: -443219559042805443
+    second: HolyCircle 1_29
+  - first:
+      213: 1408180634304235453
+    second: HolyCircle 1_30
+  - first:
+      213: -1228897874163563838
+    second: HolyCircle 1_31
+  - first:
+      213: 3298301161882941592
+    second: HolyCircle 1_32
+  - first:
+      213: -4285442520871157441
+    second: HolyCircle 1_33
+  - first:
+      213: 8361770235188164147
+    second: HolyCircle 1_34
+  - first:
+      213: 9118907323654307543
+    second: HolyCircle 1_35
+  - first:
+      213: 5584537353653767566
+    second: HolyCircle 1_36
+  - first:
+      213: 7088923069209886484
+    second: HolyCircle 1_37
+  - first:
+      213: -8056127096984042252
+    second: HolyCircle 1_38
+  - first:
+      213: 6784945080564814455
+    second: HolyCircle 1_39
+  - first:
+      213: 1702310783014852656
+    second: HolyCircle 1_40
+  - first:
+      213: 6530052518641247199
+    second: HolyCircle 1_41
+  - first:
+      213: -3470309863613088061
+    second: HolyCircle 1_42
+  - first:
+      213: 7421912958597739939
+    second: HolyCircle 1_43
+  - first:
+      213: 1502850640881068903
+    second: HolyCircle 1_44
+  - first:
+      213: -4017990197449937060
+    second: HolyCircle 1_45
+  - first:
+      213: 6112069338131828143
+    second: HolyCircle 1_46
+  - first:
+      213: 8888022091064758693
+    second: HolyCircle 1_47
+  - first:
+      213: 5329934705561885662
+    second: HolyCircle 1_48
+  - first:
+      213: -5288253754832964619
+    second: HolyCircle 1_49
+  - first:
+      213: 8763491623197881092
+    second: HolyCircle 1_50
+  - first:
+      213: 7119086877301525997
+    second: HolyCircle 1_51
+  - first:
+      213: 3378408130205712526
+    second: HolyCircle 1_52
+  - first:
+      213: 5566475134447351825
+    second: HolyCircle 1_53
+  - first:
+      213: -2737437520229482007
+    second: HolyCircle 1_54
+  - first:
+      213: -1675985090995583426
+    second: HolyCircle 1_55
+  - first:
+      213: -2290958827240962149
+    second: HolyCircle 1_56
+  - first:
+      213: -7584207064987859744
+    second: HolyCircle 1_57
+  - first:
+      213: -2957695216695136729
+    second: HolyCircle 1_58
+  - first:
+      213: -7972893485008334476
+    second: HolyCircle 1_59
+  - first:
+      213: 5338741999525894229
+    second: HolyCircle 1_60
+  - first:
+      213: -8267392456590839581
+    second: HolyCircle 1_61
+  - first:
+      213: -6080033121930661620
+    second: HolyCircle 1_62
+  - first:
+      213: -8913148279657712254
+    second: HolyCircle 1_63
+  - first:
+      213: -6564638407865067446
+    second: HolyCircle 1_64
+  - first:
+      213: 5249542316657278640
+    second: HolyCircle 1_65
+  - first:
+      213: -6004511468072440051
+    second: HolyCircle 1_66
+  - first:
+      213: -7648469683921315441
+    second: HolyCircle 1_67
+  - first:
+      213: -3323361265637312915
+    second: HolyCircle 1_68
+  - first:
+      213: -6114401477520150852
+    second: HolyCircle 1_69
+  - first:
+      213: 5719496571476693527
+    second: HolyCircle 1_70
+  - first:
+      213: 7750487906006340377
+    second: HolyCircle 1_71
+  - first:
+      213: -6519135512657256293
+    second: HolyCircle 1_72
+  - first:
+      213: -6858106578468671347
+    second: HolyCircle 1_73
+  - first:
+      213: 8615518142080553207
+    second: HolyCircle 1_74
+  - first:
+      213: 6485533196519092006
+    second: HolyCircle 1_75
+  - first:
+      213: 3916018840792760352
+    second: HolyCircle 1_76
+  - first:
+      213: 1641168610906231229
+    second: HolyCircle 1_77
+  - first:
+      213: -6197365006128461078
+    second: HolyCircle 1_78
+  - first:
+      213: 2257254602208755090
+    second: HolyCircle 1_79
+  - first:
+      213: -8050110450149920161
+    second: HolyCircle 1_80
+  - first:
+      213: -3516288313813045037
+    second: HolyCircle 1_81
+  - first:
+      213: -7911991974053853914
+    second: HolyCircle 1_82
+  - first:
+      213: 7636938354819083949
+    second: HolyCircle 1_83
+  - first:
+      213: -2363692147948267186
+    second: HolyCircle 1_84
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HolyCircle 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1366
+        width: 265
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59c518a6f55c889d0800000000000000
+      internalID: -2771748557047112555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyCircle 1_1
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 1366
+        width: 265
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08059350758ea0850800000000000000
+      internalID: 6344138485552205952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyCircle 1_2
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1366
+        width: 265
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a22e485bf10e5fef0800000000000000
+      internalID: -74907391987752406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyCircle 1_3
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 1366
+        width: 265
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d1b80c2b83057ec0800000000000000
+      internalID: -3569943233347145264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyCircle 1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 684
+        width: 265
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70d0d5ac05f343a80800000000000000
+      internalID: -8488089781461512953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyCircle 1_5
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 684
+        width: 265
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d02b4b4f34e93430800000000000000
+      internalID: 3763289924142047449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyCircle 1_6
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 684
+        width: 265
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ffb82a12c68d340800000000000000
+      internalID: 4888776287227477851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyCircle 1_7
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 684
+        width: 265
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7611a60fa5d6c2380800000000000000
+      internalID: -8994694118417755801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyCircle 1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 265
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3727f930719982c0800000000000000
+      internalID: -4428848847347308738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyCircle 1_9
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 2
+        width: 265
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adcaa1806870c2160800000000000000
+      internalID: 7001979792897256666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyCircle 1_10
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 2
+        width: 265
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e843c0d369f954370800000000000000
+      internalID: 8306220555372868750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 22b15c58068644e48976117fae4d2652
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":3.0},"gridSpriteSize":{"x":265.0,"y":682.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      HolyCircle 1_0: -2771748557047112555
+      HolyCircle 1_1: 6344138485552205952
+      HolyCircle 1_10: 8306220555372868750
+      HolyCircle 1_2: -74907391987752406
+      HolyCircle 1_3: -3569943233347145264
+      HolyCircle 1_4: -8488089781461512953
+      HolyCircle 1_5: 3763289924142047449
+      HolyCircle 1_6: 4888776287227477851
+      HolyCircle 1_7: -8994694118417755801
+      HolyCircle 1_8: -4428848847347308738
+      HolyCircle 1_9: 7001979792897256666
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

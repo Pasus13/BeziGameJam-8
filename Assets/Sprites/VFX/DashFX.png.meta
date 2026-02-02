@@ -1,0 +1,354 @@
+fileFormatVersion: 2
+guid: 11e57d1d72421c544956765dd94935e6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2492170634560335955
+    second: DashFX_0
+  - first:
+      213: -7608522635067356000
+    second: DashFX_1
+  - first:
+      213: -913050688462739146
+    second: DashFX_2
+  - first:
+      213: 4093219602848487659
+    second: DashFX_3
+  - first:
+      213: 7108594362582993338
+    second: DashFX_4
+  - first:
+      213: 3474664409812549241
+    second: DashFX_5
+  - first:
+      213: -1841199880950613084
+    second: DashFX_6
+  - first:
+      213: 6017173386721380206
+    second: DashFX_7
+  - first:
+      213: 7691131891067203379
+    second: DashFX_8
+  - first:
+      213: 3554904696937416382
+    second: DashFX_9
+  - first:
+      213: 8012729005039700848
+    second: DashFX_10
+  - first:
+      213: 2192000380229170518
+    second: DashFX_11
+  - first:
+      213: 7566358276927828655
+    second: DashFX_12
+  - first:
+      213: -5878056140986158930
+    second: DashFX_13
+  - first:
+      213: 6744372853879693450
+    second: DashFX_14
+  - first:
+      213: -7672600313831293002
+    second: DashFX_15
+  - first:
+      213: 3861170471006448097
+    second: DashFX_16
+  - first:
+      213: 6718822668388958001
+    second: DashFX_17
+  - first:
+      213: 9116917082026352836
+    second: DashFX_18
+  - first:
+      213: 8656767249966434910
+    second: DashFX_19
+  - first:
+      213: 7366581618090951449
+    second: DashFX_20
+  - first:
+      213: 6295964760658786017
+    second: DashFX_21
+  - first:
+      213: 7326443052483744819
+    second: DashFX_22
+  - first:
+      213: 5318841485073589279
+    second: DashFX_23
+  - first:
+      213: 1128117273811227997
+    second: DashFX_24
+  - first:
+      213: 4221217256760544292
+    second: DashFX_25
+  - first:
+      213: 1980530840478337728
+    second: DashFX_26
+  - first:
+      213: -3630302636319084133
+    second: DashFX_27
+  - first:
+      213: -5737720257860310215
+    second: DashFX_28
+  - first:
+      213: 3045584246543103423
+    second: DashFX_29
+  - first:
+      213: 3355245923640656171
+    second: DashFX_30
+  - first:
+      213: 706732871319402192
+    second: DashFX_31
+  - first:
+      213: -5756146332515048717
+    second: DashFX_32
+  - first:
+      213: -6707822157423256261
+    second: DashFX_33
+  - first:
+      213: -1817127845985955659
+    second: DashFX_34
+  - first:
+      213: 4708738986578824557
+    second: DashFX_35
+  - first:
+      213: -8306831736677229914
+    second: DashFX_36
+  - first:
+      213: 6457942621319249892
+    second: DashFX_37
+  - first:
+      213: -6497728531933512685
+    second: DashFX_38
+  - first:
+      213: 2783262342796595334
+    second: DashFX_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DashFX_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 295
+        width: 682
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 350f0a0fcf7f59220800000000000000
+      internalID: 2492170634560335955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashFX_1
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 295
+        width: 682
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ac8a4f99f8196690800000000000000
+      internalID: -7608522635067356000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashFX_2
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 295
+        width: 682
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 639a0448c313453f0800000000000000
+      internalID: -913050688462739146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashFX_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 682
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be8137fba890ec830800000000000000
+      internalID: 4093219602848487659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashFX_4
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 0
+        width: 682
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab98a1ae8ecc6a260800000000000000
+      internalID: 7108594362582993338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c54bb833788ae694d8c7b9e598184dd9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":2.0},"gridSpriteSize":{"x":682.0,"y":295.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      DashFX_0: 2492170634560335955
+      DashFX_1: -7608522635067356000
+      DashFX_2: -913050688462739146
+      DashFX_3: 4093219602848487659
+      DashFX_4: 7108594362582993338
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

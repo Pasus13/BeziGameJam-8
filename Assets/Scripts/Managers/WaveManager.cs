@@ -127,6 +127,48 @@ public class WaveManager : MonoBehaviour
         spawnCoroutine = StartCoroutine(SpawnWaveEnemies(currentWave));
     }
 
+    // <summary>
+    /// Start wave spawning system from menu
+    /// </summary>
+    public void StartWaves()
+    {
+        Debug.Log("<color=cyan>[WaveManager]</color> Wave system started from menu");
+
+        // Reset to first wave
+        StartWave(0);
+    }
+
+    /// <summary>
+    /// Stop wave spawning system and clear enemies
+    /// </summary>
+    public void StopWaves()
+    {
+        Debug.Log("<color=red>[WaveManager]</color> Wave system stopped");
+
+        // Stop spawning coroutine
+        if (spawnCoroutine != null)
+        {
+            StopCoroutine(spawnCoroutine);
+            spawnCoroutine = null;
+        }
+
+        // Clear all active enemies
+        foreach (var enemy in activeEnemies)
+        {
+            if (enemy != null)
+                Destroy(enemy);
+        }
+        activeEnemies.Clear();
+
+        // Reset state
+        isWaveActive = false;
+        enemiesSpawnedThisWave = 0;
+
+        // Hide goal
+        if (goalObject != null)
+            goalObject.SetActive(false);
+    }
+
     private IEnumerator SpawnWaveEnemies(WaveData wave)
     {
         int initialCount = Mathf.Min(waveConfig.InitialSpawnCount, enemiesToSpawnThisWave);
