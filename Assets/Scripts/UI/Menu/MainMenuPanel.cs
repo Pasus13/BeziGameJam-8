@@ -1,87 +1,142 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
-/// Main menu panel with Start, Credits, and Quit buttons
+/// Menu panel with slide + fade animations
 /// </summary>
-public class MainMenuPanel : MenuPanel
+[RequireComponent(typeof(CanvasGroup))]
+public class MainMenuPanel : MonoBehaviour
 {
-    [Header("Buttons")]
-    [SerializeField] private Button startButton;
-    [SerializeField] private Button creditsButton;
-    [SerializeField] private Button quitButton;
+    [Header("Animation Settings")]
+    [SerializeField] private float animationDuration = 0.5f;
+    [SerializeField] private AnimationCurve slideCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
-    private MenuManager menuManager;
+    [Header("Slide Positions")]
+    [SerializeField] private Vector2 hiddenPosition = new Vector2(0f, 1080f); // Off-screen top
+    [SerializeField] private Vector2 visiblePosition = Vector2.zero; // Center screen
 
-    protected override void Awake()
+    private RectTransform rectTransform;
+    private CanvasGroup canvasGroup;
+
+    public bool IsAnimating { get; private set; }
+    public bool IsVisible { get; private set; }
+
+    private void Awake()
     {
-        base.Awake();
+        rectTransform = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
 
-        // Override positions - Main menu slides from top
-        SetSlidePositions(
-            hidden: new Vector2(0f, 1080f),  // Off-screen top
-            visible: Vector2.zero             // Center
-        );
-
-        // Setup button listeners
-        if (startButton != null)
-            startButton.onClick.AddListener(OnStartClicked);
-
-        if (creditsButton != null)
-            creditsButton.onClick.AddListener(OnCreditsClicked);
-
-        if (quitButton != null)
-            quitButton.onClick.AddListener(OnQuitClicked);
+        // Start hidden
+        canvasGroup.alpha = 0f;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+        rectTransform.anchoredPosition = hiddenPosition;
+        IsVisible = false;
     }
 
-    public void SetMenuManager(MenuManager manager)
+    /// <summary>
+    /// Show panel with animation
+    /// </summary>
+    public void Show(bool animated = true)
     {
-        menuManager = manager;
+        gameObject.SetActive(true);
+
+        if (animated)
+        {
+            StartCoroutine(ShowCoroutine());
+        }
+        else
+        {
+            rectTransform.anchoredPosition = visiblePosition;
+            canvasGroup.alpha = 1f;
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
+            IsVisible = true;
+        }
     }
 
-    private void OnStartClicked()
+    /// <summary>
+    /// Hide panel with animation
+    /// </summary>
+    public void Hide(bool animated = true)
     {
-        if (menuManager == null || menuManager.IsTransitioning) return;
-
-        // Play button sound
-        if (AudioManager.Instance != null)
-            AudioManager.Instance.PlayButtonClick();
-
-        menuManager.StartGame();
+        if (animated)
+        {
+            StartCoroutine(HideCoroutine());
+        }
+        else
+        {
+            canvasGroup.alpha = 0f;
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+            rectTransform.anchoredPosition = hiddenPosition;
+            IsVisible = false;
+            gameObject.SetActive(false);
+        }
     }
 
-    private void OnCreditsClicked()
+    private IEnumerator ShowCoroutine()
     {
-        if (menuManager == null || menuManager.IsTransitioning) return;
+        IsAnimating = true;
 
-        // Play button sound
-        if (AudioManager.Instance != null)
-            AudioManager.Instance.PlayButtonClick();
+        float elapsed = 0f;
+        Vector2 startPos = rectTransform.anchoredPosition;
 
-        menuManager.ShowCredits();
+        while (elapsed < animationDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float t = elapsed / animationDuration;
+            float curveValue = slideCurve.Evaluate(t);
+
+            // Slide
+            rectTransform.anchoredPosition = Vector2.Lerp(startPos, visiblePosition, curveValue);
+
+            // Fade
+            canvasGroup.alpha = t;
+
+            yield return null;
+        }
+
+        // Ensure final values
+        rectTransform.anchoredPosition = visiblePosition;
+        canvasGroup.alpha = 1f;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+
+        IsAnimating = false;
+        IsVisible = true;
     }
 
-    private void OnQuitClicked()
+    private IEnumerator HideCoroutine()
     {
-        if (menuManager == null || menuManager.IsTransitioning) return;
+        IsAnimating = true;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
 
-        // Play button sound
-        if (AudioManager.Instance != null)
-            AudioManager.Instance.PlayButtonClick();
+        float elapsed = 0f;
+        Vector2 startPos = rectTransform.anchoredPosition;
 
-        menuManager.QuitGame();
-    }
+        while (elapsed < animationDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float t = elapsed / animationDuration;
+            float curveValue = slideCurve.Evaluate(t);
 
-    private void OnDestroy()
-    {
-        // Clean up listeners
-        if (startButton != null)
-            startButton.onClick.RemoveListener(OnStartClicked);
+            // Slide
+            rectTransform.anchoredPosition = Vector2.Lerp(startPos, hiddenPosition, curveValue);
 
-        if (creditsButton != null)
-            creditsButton.onClick.RemoveListener(OnCreditsClicked);
+            // Fade
+            canvasGroup.alpha = 1f - t;
 
-        if (quitButton != null)
-            quitButton.onClick.RemoveListener(OnQuitClicked);
+            yield return null;
+        }
+
+        // Ensure final values
+        rectTransform.anchoredPosition = hiddenPosition;
+        canvasGroup.alpha = 0f;
+
+        IsAnimating = false;
+        IsVisible = false;
+        gameObject.SetActive(false);
     }
 }

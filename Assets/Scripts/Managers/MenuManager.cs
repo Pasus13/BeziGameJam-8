@@ -1,31 +1,25 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
-/// Manages menu panels and game state transitions
+/// Manages main menu and game state transitions
 /// </summary>
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance { get; private set; }
 
-    [Header("Panels")]
+    [Header("Menu Panel")]
     [SerializeField] private MainMenuPanel mainMenuPanel;
-    [SerializeField] private CreditsPanel creditsPanel;
 
-    [Header("Transition Settings")]
-    [SerializeField] private float transitionOverlap = 0.2f;
+    [Header("Buttons")]
+    [SerializeField] private Button startButton;
+    [SerializeField] private Button quitButton;
 
     [Header("References")]
     [SerializeField] private GameObject player;
 
-    public enum MenuState
-    {
-        MainMenu,
-        Credits,
-        Playing
-    }
-
-    public MenuState CurrentState { get; private set; }
+    public bool IsInMenu { get; private set; }
     public bool IsTransitioning { get; private set; }
 
     private void Awake()
@@ -44,161 +38,142 @@ public class MenuManager : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
         }
 
-        // Setup panels
-        if (mainMenuPanel != null)
-            mainMenuPanel.SetMenuManager(this);
+        // Setup button listeners
+        if (startButton != null)
+        {
+            startButton.onClick.AddListener(OnStartClicked);
+            Debug.Log("<color=cyan>[MenuManager]</color> Start button listener added");
+        }
+        else
+        {
+            Debug.LogError("<color=red>[MenuManager]</color> Start button is NULL!");
+        }
 
-        if (creditsPanel != null)
-            creditsPanel.SetMenuManager(this);
+        if (quitButton != null)
+        {
+            quitButton.onClick.AddListener(OnQuitClicked);
+            Debug.Log("<color=cyan>[MenuManager]</color> Quit button listener added");
+        }
+        else
+        {
+            Debug.LogError("<color=red>[MenuManager]</color> Quit button is NULL!");
+        }
     }
 
     private void Start()
     {
         // Initial state: Show main menu
-        CurrentState = MenuState.MainMenu;
+        IsInMenu = true;
         DisablePlayerInputs();
 
         // Play menu music
         if (AudioManager.Instance != null)
             AudioManager.Instance.PlayMenuMusic();
 
-        // Show main menu with animation
+        // Show menu with animation
         if (mainMenuPanel != null)
+        {
+            mainMenuPanel.gameObject.SetActive(true); // ← AÑADIR ESTO
             mainMenuPanel.Show(animated: true);
-
-        // Ensure credits is hidden
-        if (creditsPanel != null)
-            creditsPanel.gameObject.SetActive(false);
+        }
     }
 
-    /// <summary>
-    /// Start the game (from main menu)
-    /// </summary>
-    public void StartGame()
+    public void OnStartClicked()
+    {
+        Debug.Log("<color=green>[MenuManager]</color> ========== START CLICKED ==========");
+        Debug.Log($"<color=green>[MenuManager]</color> IsTransitioning: {IsTransitioning}");
+
+        if (IsTransitioning)
+        {
+            Debug.Log("<color=yellow>[MenuManager]</color> Already transitioning, ignoring click");
+            return;
+        }
+
+        Debug.Log("<color=green>[MenuManager]</color> Playing button click sound...");
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayButtonClick();
+
+        Debug.Log("<color=green>[MenuManager]</color> Calling StartGame()...");
+        StartGame();
+    }
+
+    public void OnQuitClicked()
     {
         if (IsTransitioning) return;
 
+        // Play button sound
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayButtonClick();
+
+        QuitGame();
+    }
+
+    public void StartGame()
+    {
+        Debug.Log("<color=cyan>[MenuManager]</color> ========== StartGame() CALLED ==========");
+
+        if (IsTransitioning)
+        {
+            Debug.Log("<color=yellow>[MenuManager]</color> Already transitioning in StartGame");
+            return;
+        }
+
+        Debug.Log("<color=cyan>[MenuManager]</color> Starting coroutine...");
         StartCoroutine(StartGameCoroutine());
     }
 
     private IEnumerator StartGameCoroutine()
     {
-        IsTransitioning = true;
+        Debug.Log("<color=magenta>[MenuManager]</color> ========== COROUTINE STARTED ==========");
 
-        // Hide main menu
+        IsTransitioning = true;
+        Debug.Log($"<color=magenta>[MenuManager]</color> IsTransitioning set to TRUE");
+
+        // Hide menu
         if (mainMenuPanel != null)
         {
+            Debug.Log("<color=magenta>[MenuManager]</color> Hiding menu panel...");
             mainMenuPanel.Hide(animated: true);
 
             // Wait for animation to complete
-            yield return new WaitForSecondsRealtime(mainMenuPanel.IsAnimating ? 0.4f : 0f);
+            Debug.Log("<color=magenta>[MenuManager]</color> Waiting 0.5 seconds...");
+            yield return new WaitForSecondsRealtime(0.5f);
+            Debug.Log("<color=magenta>[MenuManager]</color> Wait complete!");
+        }
+        else
+        {
+            Debug.LogError("<color=red>[MenuManager]</color> menuPanel is NULL!");
         }
 
         // Change state
-        CurrentState = MenuState.Playing;
+        IsInMenu = false;
+        Debug.Log("<color=magenta>[MenuManager]</color> IsInMenu set to FALSE");
 
         // Enable player
+        Debug.Log("<color=magenta>[MenuManager]</color> Enabling player inputs...");
         EnablePlayerInputs();
 
         // Start battle music
         if (AudioManager.Instance != null)
+        {
+            Debug.Log("<color=magenta>[MenuManager]</color> Playing battle music...");
             AudioManager.Instance.PlayBattleMusic();
+        }
 
-        // Notify GameManager if exists
+        // Notify GameManager
         if (GameManager.Instance != null)
+        {
+            Debug.Log("<color=magenta>[MenuManager]</color> Calling GameManager.OnGameStarted()...");
             GameManager.Instance.OnGameStarted();
+        }
+        else
+        {
+            Debug.LogError("<color=red>[MenuManager]</color> GameManager.Instance is NULL!");
+        }
 
         IsTransitioning = false;
-
+        Debug.Log("<color=magenta>[MenuManager]</color> ========== COROUTINE FINISHED ==========");
         Debug.Log("<color=green>[MenuManager]</color> Game started!");
-    }
-
-    /// <summary>
-    /// Show credits panel
-    /// </summary>
-    public void ShowCredits()
-    {
-        if (IsTransitioning) return;
-
-        StartCoroutine(ShowCreditsCoroutine());
-    }
-
-    private IEnumerator ShowCreditsCoroutine()
-    {
-        IsTransitioning = true;
-
-        // Hide main menu (slide left)
-        if (mainMenuPanel != null)
-        {
-            mainMenuPanel.SetSlidePositions(
-                hidden: new Vector2(-1920f, 0f),  // Off-screen left
-                visible: Vector2.zero
-            );
-            mainMenuPanel.Hide(animated: true);
-        }
-
-        // Wait for overlap
-        yield return new WaitForSecondsRealtime(transitionOverlap);
-
-        // Show credits (slide from right)
-        if (creditsPanel != null)
-        {
-            creditsPanel.Show(animated: true);
-        }
-
-        // Wait for animation
-        yield return new WaitForSecondsRealtime(0.4f);
-
-        // Change state
-        CurrentState = MenuState.Credits;
-
-        IsTransitioning = false;
-    }
-
-    /// <summary>
-    /// Show main menu (from credits)
-    /// </summary>
-    public void ShowMainMenu()
-    {
-        if (IsTransitioning) return;
-
-        StartCoroutine(ShowMainMenuCoroutine());
-    }
-
-    private IEnumerator ShowMainMenuCoroutine()
-    {
-        IsTransitioning = true;
-
-        // Hide credits (slide right)
-        if (creditsPanel != null)
-        {
-            creditsPanel.SetSlidePositions(
-                hidden: new Vector2(1920f, 0f),  // Off-screen right
-                visible: Vector2.zero
-            );
-            creditsPanel.Hide(animated: true);
-        }
-
-        // Wait for overlap
-        yield return new WaitForSecondsRealtime(transitionOverlap);
-
-        // Show main menu (slide from left)
-        if (mainMenuPanel != null)
-        {
-            mainMenuPanel.SetSlidePositions(
-                hidden: new Vector2(-1920f, 0f),  // Off-screen left
-                visible: Vector2.zero
-            );
-            mainMenuPanel.Show(animated: true);
-        }
-
-        // Wait for animation
-        yield return new WaitForSecondsRealtime(0.4f);
-
-        // Change state
-        CurrentState = MenuState.MainMenu;
-
-        IsTransitioning = false;
     }
 
     /// <summary>
@@ -208,10 +183,10 @@ public class MenuManager : MonoBehaviour
     {
         if (IsTransitioning) return;
 
-        StartCoroutine(ReturnToMainMenuCoroutine());
+        StartCoroutine(ReturnToMenuCoroutine());
     }
 
-    private IEnumerator ReturnToMainMenuCoroutine()
+    private IEnumerator ReturnToMenuCoroutine()
     {
         IsTransitioning = true;
 
@@ -226,7 +201,7 @@ public class MenuManager : MonoBehaviour
                 pm.Respawn();
         }
 
-        // Stop waves if running
+        // Stop waves
         if (WaveManager.Instance != null)
             WaveManager.Instance.StopWaves();
 
@@ -234,20 +209,15 @@ public class MenuManager : MonoBehaviour
         if (AudioManager.Instance != null)
             AudioManager.Instance.PlayMenuMusic();
 
-        // Show main menu
+        // Show menu
         if (mainMenuPanel != null)
         {
-            mainMenuPanel.SetSlidePositions(
-                hidden: new Vector2(0f, 1080f),  // Off-screen top
-                visible: Vector2.zero
-            );
             mainMenuPanel.Show(animated: true);
-
             yield return new WaitForSecondsRealtime(0.5f);
         }
 
         // Change state
-        CurrentState = MenuState.MainMenu;
+        IsInMenu = true;
 
         IsTransitioning = false;
 
@@ -310,5 +280,15 @@ public class MenuManager : MonoBehaviour
             ms.enabled = false;
 
         Debug.Log("<color=yellow>[MenuManager]</color> Player inputs disabled");
+    }
+
+    private void OnDestroy()
+    {
+        // Clean up listeners
+        if (startButton != null)
+            startButton.onClick.RemoveListener(OnStartClicked);
+
+        if (quitButton != null)
+            quitButton.onClick.RemoveListener(OnQuitClicked);
     }
 }

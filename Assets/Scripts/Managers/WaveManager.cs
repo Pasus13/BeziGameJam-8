@@ -127,7 +127,7 @@ public class WaveManager : MonoBehaviour
         spawnCoroutine = StartCoroutine(SpawnWaveEnemies(currentWave));
     }
 
-    // <summary>
+    /// <summary>
     /// Start wave spawning system from menu
     /// </summary>
     public void StartWaves()
@@ -135,6 +135,7 @@ public class WaveManager : MonoBehaviour
         Debug.Log("<color=cyan>[WaveManager]</color> Wave system started from menu");
 
         // Reset to first wave
+        currentWaveIndex = 0;
         StartWave(0);
     }
 
