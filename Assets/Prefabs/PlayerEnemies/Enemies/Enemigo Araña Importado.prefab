@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8261558773355391631}
   - component: {fileID: 6277223318784049007}
   m_Layer: 0
-  m_Name: "EnemigoAra\xF1a"
+  m_Name: "Enemigo Ara\xF1a Importado"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,9 +132,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1438584111
-  m_SortingLayer: 21
-  m_SortingOrder: 0
+  m_SortingLayerID: 1437248961
+  m_SortingLayer: 4
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6135638253310243861, guid: 9c9d00ddf3e6e6344bde2e42c587f3a4, type: 3}
   m_Color: {r: 1, g: 0.62352943, b: 0.96862745, a: 1}
