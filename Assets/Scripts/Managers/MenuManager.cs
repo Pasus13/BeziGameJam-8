@@ -124,56 +124,31 @@ public class MenuManager : MonoBehaviour
 
     private IEnumerator StartGameCoroutine()
     {
-        Debug.Log("<color=magenta>[MenuManager]</color> ========== COROUTINE STARTED ==========");
 
         IsTransitioning = true;
-        Debug.Log($"<color=magenta>[MenuManager]</color> IsTransitioning set to TRUE");
 
         // Hide menu
         if (mainMenuPanel != null)
         {
-            Debug.Log("<color=magenta>[MenuManager]</color> Hiding menu panel...");
             mainMenuPanel.Hide(animated: true);
 
             // Wait for animation to complete
-            Debug.Log("<color=magenta>[MenuManager]</color> Waiting 0.5 seconds...");
             yield return new WaitForSecondsRealtime(0.5f);
-            Debug.Log("<color=magenta>[MenuManager]</color> Wait complete!");
-        }
-        else
-        {
-            Debug.LogError("<color=red>[MenuManager]</color> menuPanel is NULL!");
         }
 
         // Change state
         IsInMenu = false;
-        Debug.Log("<color=magenta>[MenuManager]</color> IsInMenu set to FALSE");
 
         // Enable player
-        Debug.Log("<color=magenta>[MenuManager]</color> Enabling player inputs...");
         EnablePlayerInputs();
-
-        // Start battle music
-        if (AudioManager.Instance != null)
-        {
-            Debug.Log("<color=magenta>[MenuManager]</color> Playing battle music...");
-            AudioManager.Instance.PlayBattleMusic();
-        }
 
         // Notify GameManager
         if (GameManager.Instance != null)
         {
-            Debug.Log("<color=magenta>[MenuManager]</color> Calling GameManager.OnGameStarted()...");
             GameManager.Instance.OnGameStarted();
-        }
-        else
-        {
-            Debug.LogError("<color=red>[MenuManager]</color> GameManager.Instance is NULL!");
         }
 
         IsTransitioning = false;
-        Debug.Log("<color=magenta>[MenuManager]</color> ========== COROUTINE FINISHED ==========");
-        Debug.Log("<color=green>[MenuManager]</color> Game started!");
     }
 
     /// <summary>

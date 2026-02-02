@@ -67,7 +67,7 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        StartWave(0);
+        Debug.Log("<color=yellow>[WaveManager]</color> Waiting for trigger to start waves...");
     }
 
     private void InitializeSpawnPoints()
@@ -136,6 +136,20 @@ public class WaveManager : MonoBehaviour
 
         // Reset to first wave
         currentWaveIndex = 0;
+        StartWave(0);
+    }
+
+    /// <summary>
+    /// Start waves from trigger (called by WaveStartTrigger)
+    /// </summary>
+    public void StartWavesFromTrigger()
+    {
+        Debug.Log("<color=cyan>[WaveManager]</color> Starting waves from trigger!");
+
+        // Reset to first wave
+        currentWaveIndex = 0;
+
+        // Start first wave
         StartWave(0);
     }
 
