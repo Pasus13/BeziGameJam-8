@@ -252,12 +252,12 @@ public class WaveManager : MonoBehaviour
             }
             else if (availableSpawnPoints.Count == 0)
             {
-                Debug.LogWarning($"WaveManager: No hay suficientes spawn points disponibles. {count - i} enemigos no spawneados en este batch.");
+                Debug.LogWarning($"WaveManager: Not enough spawn points available. {count - i} enemies not spawned in this batch.");
                 break;
             }
         }
 
-        Debug.Log($"Spawneados {Mathf.Min(count, spawnPoints.Count)} enemigos. Total spawneado: {enemiesSpawnedThisWave}/{enemiesToSpawnThisWave}");
+        Debug.Log($"Spawned {Mathf.Min(count, spawnPoints.Count)} enemies. Total spawned: {enemiesSpawnedThisWave}/{enemiesToSpawnThisWave}");
     }
 
     private int CountEnemiesOfType(GameObject prefab)

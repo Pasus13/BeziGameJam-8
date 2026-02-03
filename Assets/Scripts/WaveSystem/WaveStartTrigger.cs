@@ -7,7 +7,7 @@ using UnityEngine;
 public class WaveStartTrigger : MonoBehaviour
 {
     [Header("Prompt Settings")]
-    [SerializeField] private string promptMessage = "Pulsa Enter para comenzar los sacrificios";
+    [SerializeField] private string promptMessage = "Press ENTER to Begin with 'The Sacrifice'";
     [SerializeField] private KeyCode activationKey = KeyCode.Return;
 
     [Header("Visual Effects")]
@@ -45,8 +45,9 @@ public class WaveStartTrigger : MonoBehaviour
         // Check for activation input
         if (playerInRange && !hasBeenActivated)
         {
-            if (Input.GetKeyDown(activationKey))
+            if (InputManager.ConfirmWasPressed)
             {
+                Debug.Log("Confirm was Pressed");
                 ActivateTrigger();
             }
         }
@@ -56,23 +57,32 @@ public class WaveStartTrigger : MonoBehaviour
     {
         if (hasBeenActivated) return;
 
-        if (collision.CompareTag("Player"))
+        // CAMBIAR A ESTO:
+        // Busca PlayerMovement en el objeto o en sus padres
+        PlayerMovement player = collision.GetComponentInParent<PlayerMovement>();
+
+        if (player != null)
         {
+            Debug.Log("<color=green>[WaveStartTrigger]</color> ========== PLAYER DETECTED ==========");
             playerInRange = true;
 
             // Show particles
             if (particles != null && showParticlesOnlyWhenNear)
             {
                 particles.Play();
+                Debug.Log("<color=cyan>[WaveStartTrigger]</color> Particles started");
             }
 
             // Show prompt
             if (TriggerPromptUI.Instance != null)
             {
                 TriggerPromptUI.Instance.ShowPrompt(promptMessage);
+                Debug.Log("<color=cyan>[WaveStartTrigger]</color> Prompt shown");
             }
-
-            Debug.Log("<color=cyan>[WaveStartTrigger]</color> Player entered trigger");
+            else
+            {
+                Debug.LogError("<color=red>[WaveStartTrigger]</color> TriggerPromptUI.Instance is NULL!");
+            }
         }
     }
 
@@ -80,8 +90,12 @@ public class WaveStartTrigger : MonoBehaviour
     {
         if (hasBeenActivated) return;
 
-        if (collision.CompareTag("Player"))
+        // CAMBIAR A ESTO:
+        PlayerMovement player = collision.GetComponentInParent<PlayerMovement>();
+
+        if (player != null)
         {
+            Debug.Log("<color=yellow>[WaveStartTrigger]</color> Player exited trigger");
             playerInRange = false;
 
             // Hide particles
@@ -95,8 +109,6 @@ public class WaveStartTrigger : MonoBehaviour
             {
                 TriggerPromptUI.Instance.HidePrompt();
             }
-
-            Debug.Log("<color=yellow>[WaveStartTrigger]</color> Player exited trigger");
         }
     }
 

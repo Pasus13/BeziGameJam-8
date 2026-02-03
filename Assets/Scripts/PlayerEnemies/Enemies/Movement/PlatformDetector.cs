@@ -2,21 +2,21 @@ using UnityEngine;
 
 /// <summary>
 /// Detecta la plataforma actual del enemigo y calcula puntos de patrulla inteligentes.
-/// Limita patrullas grandes según maxPatrolWidth del config.
+/// Limita patrullas grandes segï¿½n maxPatrolWidth del config.
 /// </summary>
 public class PlatformDetector : MonoBehaviour
 {
     [Header("Detection Settings")]
-    [Tooltip("Layer donde están el suelo y plataformas")]
+    [Tooltip("Layer donde estï¿½n el suelo y plataformas")]
     [SerializeField] private LayerMask groundLayer;
 
-    [Tooltip("Distancia máxima de raycast lateral")]
+    [Tooltip("Distancia mï¿½xima de raycast lateral")]
     [SerializeField] private float maxRaycastDistance = 50f;
 
-    [Tooltip("Distancia de detección de suelo debajo")]
+    [Tooltip("Distancia de detecciï¿½n de suelo debajo")]
     [SerializeField] private float groundCheckDistance = 1f;
 
-    [Tooltip("Incremento de cada raycast (menor = más preciso pero más lento)")]
+    [Tooltip("Incremento de cada raycast (menor = mï¿½s preciso pero mï¿½s lento)")]
     [SerializeField] private float raycastStep = 0.5f;
 
     [Header("Debug")]
@@ -29,10 +29,10 @@ public class PlatformDetector : MonoBehaviour
     private bool hasDetectedPoints;
 
     /// <summary>
-    /// Detecta la plataforma actual y retorna puntos de patrulla válidos
+    /// Detecta la plataforma actual y retorna puntos de patrulla vï¿½lidos
     /// </summary>
-    /// <param name="config">Configuración del enemigo (para obtener maxPatrolWidth)</param>
-    /// <param name="minPatrolWidth">Ancho mínimo de patrulla</param>
+    /// <param name="config">Configuraciï¿½n del enemigo (para obtener maxPatrolWidth)</param>
+    /// <param name="minPatrolWidth">Ancho mï¿½nimo de patrulla</param>
     /// <returns>Tupla con punto A y punto B de patrulla</returns>
     public (Vector2 pointA, Vector2 pointB) DetectPatrolPoints(
         EnemyConfigBase config,
@@ -54,7 +54,7 @@ public class PlatformDetector : MonoBehaviour
         float maxWidth = config.maxPatrolWidth;
         if (platformWidth > maxWidth)
         {
-            // Centrar patrulla en posición actual del enemigo
+            // Centrar patrulla en posiciï¿½n actual del enemigo
             float halfWidth = maxWidth / 2f;
             leftEdge = currentPos.x - halfWidth;
             rightEdge = currentPos.x + halfWidth;
@@ -65,7 +65,7 @@ public class PlatformDetector : MonoBehaviour
             }
         }
 
-        // 3. Aplicar límites de arena (nunca exceder bounds)
+        // 3. Aplicar lï¿½mites de arena (nunca exceder bounds)
         if (ArenaLimits.Instance != null)
         {
             Bounds arenaBounds = ArenaLimits.Instance.GetBounds();
@@ -73,7 +73,7 @@ public class PlatformDetector : MonoBehaviour
             rightEdge = Mathf.Min(rightEdge, arenaBounds.max.x - 0.5f);
         }
 
-        // 4. Verificar ancho mínimo
+        // 4. Verificar ancho mï¿½nimo
         float finalWidth = rightEdge - leftEdge;
         if (finalWidth < minPatrolWidth)
         {
@@ -83,14 +83,14 @@ public class PlatformDetector : MonoBehaviour
 
             if (showDebugLogs)
             {
-                Debug.Log($"<color=orange>[PlatformDetector]</color> Patrulla muy pequeña, ampliada a {minPatrolWidth}m");
+                Debug.Log($"<color=orange>[PlatformDetector]</color> Patrulla muy pequeï¿½a, ampliada a {minPatrolWidth}m");
             }
         }
 
-        // 5. Encontrar altura Y (suelo debajo del enemigo)
+        // 5. Find Y height (ground below the enemy)
         float groundY = FindGroundY(currentPos);
 
-        // Guardar para Gizmos
+        // Save for Gizmos
         lastDetectedPointA = new Vector2(leftEdge, groundY);
         lastDetectedPointB = new Vector2(rightEdge, groundY);
         hasDetectedPoints = true;
@@ -99,7 +99,7 @@ public class PlatformDetector : MonoBehaviour
     }
 
     /// <summary>
-    /// Encuentra el borde de la plataforma en una dirección
+    /// Encuentra el borde de la plataforma en una direcciï¿½n
     /// </summary>
     private float FindPlatformEdge(Vector2 startPos, Vector2 direction)
     {
@@ -118,12 +118,12 @@ public class PlatformDetector : MonoBehaviour
             }
         }
 
-        // Si llegamos al máximo, usar esa posición
+        // Si llegamos al mï¿½ximo, usar esa posiciï¿½n
         return startPos.x + direction.x * maxRaycastDistance;
     }
 
     /// <summary>
-    /// Encuentra la altura Y del suelo debajo del enemigo
+    /// Finds the Y height of the ground below the enemy
     /// </summary>
     private float FindGroundY(Vector2 pos)
     {
@@ -131,11 +131,11 @@ public class PlatformDetector : MonoBehaviour
 
         if (hit.collider)
         {
-            // Un poco arriba del suelo para que no se hunda
+            // A bit above ground so it doesn't sink
             return hit.point.y + 0.5f;
         }
 
-        // Si no encuentra suelo, mantener altura actual
+        // If no ground found, keep current height
         return pos.y;
     }
 
@@ -143,7 +143,7 @@ public class PlatformDetector : MonoBehaviour
     {
         if (!showGizmos || !hasDetectedPoints) return;
 
-        // Dibujar línea de patrulla detectada
+        // Dibujar lï¿½nea de patrulla detectada
         Gizmos.color = Color.green;
         Gizmos.DrawLine(lastDetectedPointA, lastDetectedPointB);
 

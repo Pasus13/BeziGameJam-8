@@ -13,8 +13,8 @@ public class KillZone : MonoBehaviour
 
         _alreadyTriggered = true;
 
-        // Activar Game Over directo
-        Debug.Log("=== PLAYER CAYÓ EN KILLZONE - GAME OVER ===");
+        // Activate Game Over directly
+        Debug.Log("=== PLAYER FELL IN KILLZONE - GAME OVER ===");
 
         if (UIManager.Instance != null)
         {
@@ -22,7 +22,7 @@ public class KillZone : MonoBehaviour
         }
         else
         {
-            Debug.LogError("UIManager.Instance es null! No se puede mostrar Game Over Panel");
+            Debug.LogError("UIManager.Instance is null! Cannot show Game Over Panel");
         }
     }
 

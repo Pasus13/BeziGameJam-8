@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 /// <summary>
 /// Ataque de carga lineal para el Enemy Charge.
@@ -30,7 +30,7 @@ public class ChargeAttack : MonoBehaviour, IAttack
 
         if (rb == null)
         {
-            Debug.LogError($"ChargeAttack on {gameObject.name}: No se encontró Rigidbody2D!");
+            Debug.LogError($"ChargeAttack on {gameObject.name}: Rigidbody2D not found!");
         }
 
         if (obstacleLayer == 0)
@@ -41,7 +41,7 @@ public class ChargeAttack : MonoBehaviour, IAttack
 
     private void Start()
     {
-        // Obtener config si no está asignado
+        // Get config if not assigned
         if (config == null)
         {
             EnemyBrain brain = GetComponent<EnemyBrain>();
@@ -57,13 +57,13 @@ public class ChargeAttack : MonoBehaviour, IAttack
 
         if (config == null)
         {
-            Debug.LogError($"ChargeAttack on {gameObject.name}: No se encontró ChargeEnemyConfig!");
+            Debug.LogError($"ChargeAttack on {gameObject.name}: ChargeEnemyConfig not found!");
         }
     }
 
     public bool CanStartAttack()
     {
-        // Puede cargar si no está ya cargando
+        // Can charge if not already charging
         return !isCharging;
     }
 
@@ -71,15 +71,15 @@ public class ChargeAttack : MonoBehaviour, IAttack
     {
         if (isCharging || config == null) return;
 
-        // Encontrar al jugador
+        // Find player
         Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
         if (player == null)
         {
-            Debug.LogWarning($"ChargeAttack: No se encontró el jugador!");
+            Debug.LogWarning($"ChargeAttack: Player not found!");
             return;
         }
 
-        // SNAPSHOT: Fijar dirección hacia donde ESTÁ el jugador AHORA
+        // SNAPSHOT: Lock direction towards where the player IS NOW
         chargeDirection = (player.position - transform.position).normalized;
         chargeStartPosition = transform.position;
         chargeTimer = 0f;

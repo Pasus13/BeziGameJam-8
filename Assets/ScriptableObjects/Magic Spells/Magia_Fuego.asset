@@ -14,11 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MagicSpellData
   spellName: Magia de Fuego
   buttons:
-  - key: 113
-    position: 0.16
-  - key: 119
+  - key: 274
+    position: 0.3
+  - key: 273
     position: 0.5
-  - key: 101
-    position: 0.84
+  - key: 275
+    position: 0.75
+  - key: 276
+    position: 0.98
+  qteAudioClip: {fileID: 8300000, guid: 790cbf3def3aed244a52c4fabf5da577, type: 3}
   damageArea: {fileID: 11400000, guid: 996fa019bbea5f344b26802742558da2, type: 2}
   cooldownMultiplier: 1
+  vfxPrefab: {fileID: 6582877473166712722, guid: e50f4a116c685f94186a54637d3529b6, type: 3}
+  vfxOffset: {x: 0, y: 0}
+  vfxDuration: 2

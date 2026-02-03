@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -22,6 +22,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button retryButton;
     [SerializeField] private Button mainMenuButton;
 
+    [Header("Victory Panel")]
+    [SerializeField] private GameObject victoryPanel;
+    [SerializeField] private Button victoryRetryButton;
+    [SerializeField] private Button victoryMainMenuButton;
+
     private Action<int> _onOptionSelected;
 
     private void Awake()
@@ -35,6 +40,12 @@ public class UIManager : MonoBehaviour
         {
             gameOverPanel.SetActive(false);
             SetupGameOverButtons();
+        }
+
+        if (victoryPanel != null)
+        {
+            victoryPanel.SetActive(false);
+            SetupVictoryButtons();
         }
     }
 
@@ -50,6 +61,21 @@ public class UIManager : MonoBehaviour
         {
             mainMenuButton.onClick.RemoveAllListeners();
             mainMenuButton.onClick.AddListener(OnMainMenuClicked);
+        }
+    }
+
+    private void SetupVictoryButtons()
+    {
+        if (victoryRetryButton != null)
+        {
+            victoryRetryButton.onClick.RemoveAllListeners();
+            victoryRetryButton.onClick.AddListener(OnRetryClicked);
+        }
+
+        if (victoryMainMenuButton != null)
+        {
+            victoryMainMenuButton.onClick.RemoveAllListeners();
+            victoryMainMenuButton.onClick.AddListener(OnMainMenuClicked);
         }
     }
 
@@ -97,7 +123,7 @@ public class UIManager : MonoBehaviour
         {
             gameOverPanel.SetActive(true);
             Time.timeScale = 0f;
-            Debug.Log("✓ Game Over Panel mostrado");
+            Debug.Log("✓ Game Over Panel shown");
         }
     }
 
@@ -107,7 +133,27 @@ public class UIManager : MonoBehaviour
         {
             gameOverPanel.SetActive(false);
             Time.timeScale = 1f;
-            Debug.Log("✓ Game Over Panel ocultado");
+            Debug.Log("✓ Game Over Panel hidden");
+        }
+    }
+
+    public void ShowVictoryPanel()
+    {
+        if (victoryPanel != null)
+        {
+            victoryPanel.SetActive(true);
+            Time.timeScale = 0f;
+            Debug.Log("<color=yellow>✓ Victory Panel shown - You won!</color>");
+        }
+    }
+
+    public void HideVictoryPanel()
+    {
+        if (victoryPanel != null)
+        {
+            victoryPanel.SetActive(false);
+            Time.timeScale = 1f;
+            Debug.Log("✓ Victory Panel hidden");
         }
     }
 
@@ -126,72 +172,72 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            // Fallback si no hay GameManager
-            Debug.LogWarning("No se encontró GameManager. Haciendo reseteo manual...");
+            // Fallback if no GameManager exists
+            Debug.LogWarning("GameManager not found. Performing manual reset...");
             ManualReset();
         }
     }
 
     /// <summary>
-    /// Reseteo manual si no existe GameManager (fallback de seguridad)
+    /// Manual reset if GameManager doesn't exist (safety fallback)
     /// </summary>
     private void ManualReset()
     {
-        Debug.Log("=== INICIANDO RESETEO MANUAL ===");
+        Debug.Log("=== STARTING MANUAL RESET ===");
 
-        // Resetear WaveManager
+        // Reset WaveManager
         if (WaveManager.Instance != null)
         {
             WaveManager.Instance.RestartWaves();
-            Debug.Log("✓ WaveManager reseteado");
+            Debug.Log("✓ WaveManager reset");
         }
 
-        // Buscar player y resetear sus componentes
+        // Find player and reset components
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
-            // Resetear vidas
+            // Reset lives
             HealthComponent healthComponent = player.GetComponent<HealthComponent>();
             if (healthComponent != null)
             {
                 healthComponent.ResetHealth();
-                Debug.Log("✓ Salud reseteada");
+                Debug.Log("✓ Health reset");
             }
 
-            // Resetear salud
+            // Reset health
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
                 playerHealth.ResetForNewGame();
-                Debug.Log("✓ Salud reseteada");
+                Debug.Log("✓ Health reset");
             }
 
-            // Resetear posición
+            // Reset position
             PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
             if (playerMovement != null)
             {
                 playerMovement.Respawn();
                 playerMovement.ResetMultipliers();
-                Debug.Log("✓ Posición y multiplicadores reseteados");
+                Debug.Log("✓ Position and multipliers reset");
             }
 
-            // Resetear combate
+            // Reset combat
             PlayerCombat playerCombat = player.GetComponent<PlayerCombat>();
             if (playerCombat != null)
             {
                 playerCombat.ResetCombat();
-                Debug.Log("✓ Combate reseteado");
+                Debug.Log("✓ Combat reset");
             }
 
-            // Resetear magia
+            // Reset magic
             MagicSystem magicSystem = player.GetComponent<MagicSystem>();
             if (magicSystem != null)
             {
                 magicSystem.ResetMagic();
-                Debug.Log("✓ Magia reseteada");
+                Debug.Log("✓ Magic reset");
             }
 
-            // Resetear modificadores
+            // Reset modifiers
             ModifierManager modifierManager = FindFirstObjectByType<ModifierManager>();
             if (modifierManager != null)
             {
@@ -199,16 +245,16 @@ public class UIManager : MonoBehaviour
                 if (gm != null)
                 {
                     modifierManager.RevertAll(gm);
-                    Debug.Log("✓ Modificadores revertidos");
+                    Debug.Log("✓ Modifiers reverted");
                 }
             }
         }
         else
         {
-            Debug.LogError("⚠ No se encontró el Player con tag 'Player'!");
+            Debug.LogError("⚠ Player not found with tag 'Player'!");
         }
 
-        Debug.Log("=== RESETEO MANUAL COMPLETADO ===");
+        Debug.Log("=== MANUAL RESET COMPLETED ===");
     }
 
     private void OnMainMenuClicked()

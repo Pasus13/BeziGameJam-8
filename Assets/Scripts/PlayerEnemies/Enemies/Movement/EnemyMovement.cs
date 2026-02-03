@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Implementación del sistema de movimiento para enemigos.
+/// Implementaciï¿½n del sistema de movimiento para enemigos.
 /// </summary>
 public class EnemyMovement : MonoBehaviour, IEnemyMovement
 {
@@ -22,19 +22,19 @@ public class EnemyMovement : MonoBehaviour, IEnemyMovement
 
         if (rb == null)
         {
-            Debug.LogError($"EnemyMovement on {gameObject.name}: No se encontró Rigidbody2D!");
+            Debug.LogError($"EnemyMovement on {gameObject.name}: Rigidbody2D not found!");
         }
     }
 
     /// <summary>
-    /// Mueve el enemigo hacia un objetivo específico
+    /// Moves the enemy towards a specific target
     /// CORREGIDO: Solo mueve horizontalmente, respeta gravedad en Y
     /// </summary>
     public void MoveTowards(Vector2 target, float speed)
     {
         if (rb == null) return;
 
-        // Calcular dirección horizontal (izquierda = -1, derecha = 1)
+        // Calcular direcciï¿½n horizontal (izquierda = -1, derecha = 1)
         float directionX = Mathf.Sign(target.x - transform.position.x);
 
         // Aplicar velocidad SOLO en X, mantener Y para gravedad
@@ -51,7 +51,7 @@ public class EnemyMovement : MonoBehaviour, IEnemyMovement
     {
         if (rb == null) return;
 
-        // Solo detener movimiento horizontal, mantener caída/salto
+        // Solo detener movimiento horizontal, mantener caï¿½da/salto
         rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
     }
 
@@ -69,7 +69,7 @@ public class EnemyMovement : MonoBehaviour, IEnemyMovement
             SetPatrolPoints(pointA, pointB);
         }
 
-        // Calcular dirección horizontal hacia el punto objetivo
+        // Calcular direcciï¿½n horizontal hacia el punto objetivo
         float directionX = Mathf.Sign(currentPatrolTarget.x - transform.position.x);
 
         // Aplicar velocidad solo en X, mantener Y para gravedad
@@ -78,7 +78,7 @@ public class EnemyMovement : MonoBehaviour, IEnemyMovement
         // Voltear hacia el objetivo
         FlipTowards(currentPatrolTarget);
 
-        // Verificar si llegamos al punto objetivo (solo comprobación en X)
+        // Verificar si llegamos al punto objetivo (solo comprobaciï¿½n en X)
         float distanceX = Mathf.Abs(transform.position.x - currentPatrolTarget.x);
         if (distanceX < 0.2f)
         {
@@ -97,7 +97,7 @@ public class EnemyMovement : MonoBehaviour, IEnemyMovement
 
         float direction = target.x - transform.position.x;
 
-        // Si está a la izquierda, flipear
+        // Si estï¿½ a la izquierda, flipear
         spriteRenderer.flipX = direction < 0;
     }
 
@@ -126,7 +126,7 @@ public class EnemyMovement : MonoBehaviour, IEnemyMovement
     {
         if (!patrolInitialized) return;
 
-        // Dibujar línea de patrulla
+        // Dibujar lï¿½nea de patrulla
         Gizmos.color = Color.green;
         Gizmos.DrawLine(patrolPointA, patrolPointB);
 

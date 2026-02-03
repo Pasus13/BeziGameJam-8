@@ -11,6 +11,10 @@ public class MagicSpellData : ScriptableObject
     [Tooltip("Lista de botones y sus posiciones en la línea del QTE")]
     public List<QTEButtonData> buttons = new List<QTEButtonData>();
     
+    [Header("QTE Audio")]
+    [Tooltip("Clip de audio que se reproduce cuando el QTE empieza a moverse")]
+    public AudioClip qteAudioClip;
+    
     [Header("Damage Area")]
     [Tooltip("Define el área de daño y daño base de esta magia")]
     public MagicDamageArea damageArea;
@@ -18,13 +22,23 @@ public class MagicSpellData : ScriptableObject
     [Header("Spell Effects")]
     [Tooltip("Multiplicador del cooldown de la magia")]
     public float cooldownMultiplier = 1f;
+    
+    [Header("Visual Effects")]
+    [Tooltip("Prefab de VFX que se muestra al ejecutar la magia")]
+    public GameObject vfxPrefab;
+    
+    [Tooltip("Offset de posición del VFX relativo al jugador")]
+    public Vector2 vfxOffset = Vector2.zero;
+    
+    [Tooltip("Duración del VFX antes de destruirse (0 = usar Animator para auto-destrucción)")]
+    public float vfxDuration = 2f;
 }
 
 [System.Serializable]
 public class QTEButtonData
 {
-    [Tooltip("Tecla a presionar (Q, W, E, R)")]
-    public KeyCode key = KeyCode.Q;
+    [Tooltip("Tecla de flecha a presionar (UpArrow, DownArrow, LeftArrow, RightArrow)")]
+    public KeyCode key = KeyCode.UpArrow;
     
     [Tooltip("Posición en la línea del QTE (0.0 = inicio, 1.0 = final)")]
     [Range(0f, 1f)]

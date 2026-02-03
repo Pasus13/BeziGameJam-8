@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 /// <summary>
 /// Ataque de picada para el Enemy Flyer.
@@ -28,7 +28,7 @@ public class DiveAttack : MonoBehaviour, IAttack
 
         if (rb == null)
         {
-            Debug.LogError($"DiveAttack on {gameObject.name}: No se encontró Rigidbody2D!");
+            Debug.LogError($"DiveAttack on {gameObject.name}: Rigidbody2D not found!");
         }
 
         if (obstacleLayer == 0)
@@ -39,7 +39,7 @@ public class DiveAttack : MonoBehaviour, IAttack
 
     private void Start()
     {
-        // Obtener config si no está asignado
+        // Get config if not assigned
         if (config == null)
         {
             EnemyBrain brain = GetComponent<EnemyBrain>();
@@ -55,13 +55,13 @@ public class DiveAttack : MonoBehaviour, IAttack
 
         if (config == null)
         {
-            Debug.LogError($"DiveAttack on {gameObject.name}: No se encontró FlyerEnemyConfig!");
+            Debug.LogError($"DiveAttack on {gameObject.name}: FlyerEnemyConfig not found!");
         }
     }
 
     public bool CanStartAttack()
     {
-        // Puede hacer dive si no está ya haciendo dive
+        // Can dive if not already diving
         return !isDiving;
     }
 
@@ -69,15 +69,15 @@ public class DiveAttack : MonoBehaviour, IAttack
     {
         if (isDiving || config == null) return;
 
-        // Encontrar al jugador
+        // Find player
         Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
         if (player == null)
         {
-            Debug.LogWarning($"DiveAttack: No se encontró el jugador!");
+            Debug.LogWarning($"DiveAttack: Player not found!");
             return;
         }
 
-        // SNAPSHOT: Fijar posición hacia donde ESTÁ el jugador AHORA
+        // SNAPSHOT: Lock position towards where the player IS NOW
         diveTarget = player.position;
         diveStartPosition = transform.position;
         isDiving = true;

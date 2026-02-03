@@ -10,11 +10,11 @@ public class MirrorControlsModifier : ModifierData
         var pm = gameManager.PlayerMovement;
         if (pm == null)
         {
-            Debug.LogError("MirrorControlsModifier: No encuentro GameManager.PlayerMovement.");
+            Debug.LogError("MirrorControlsModifier: GameManager.PlayerMovement not found.");
             return null;
         }
 
-        // Stack-safe: cada Apply hace Push, cada Revert hace Pop
+        // Stack-safe: each Apply does Push, each Revert does Pop
         pm.PushInvertHorizontal();
 
         return new MirrorEffect();

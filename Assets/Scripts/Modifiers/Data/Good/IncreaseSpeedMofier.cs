@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Modifiers/Good/Increase Speed")]
 public class IncreaseSpeedModifier : ModifierData
@@ -12,14 +12,14 @@ public class IncreaseSpeedModifier : ModifierData
         var pm = gameManager.PlayerMovement;
         if (pm == null)
         {
-            Debug.LogError("IncreaseSpeedModifier: No encuentro GameManager.PlayerMovement.");
+            Debug.LogError("IncreaseSpeedModifier: GameManager.PlayerMovement not found.");
             return null;
         }
 
         float mult = 1f + percent / 100f;
 
-        // ⚠️ Asegúrate de que ESTE método existe en tu PlayerMovement.
-        // Si no existe, cambia esta línea al método real que estés usando.
+        // ⚠️ Make sure THIS method exists in your PlayerMovement.
+        // If it doesn't exist, change this line to the actual method you're using.
         pm.MultiplySpeed(mult);
 
         return new SpeedEffect(mult);

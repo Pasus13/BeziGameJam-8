@@ -21,11 +21,14 @@ public class QTEManager : MonoBehaviour
 
     private int currentButtonIndex;
     private int totalScore;
+    private int lastButtonScore;
     private float currentProgress;
     private float qteTimer;
     private float perfectZoneMultiplier = 1f;  // Modified by modifiers
     private float goodZoneMultiplier = 1f;     // Modified by modifiers
     private bool isQTEActive;
+    private AudioClip pendingQTEAudio;
+    private bool audioPlayed;
 
     private void Awake()
     {
@@ -56,6 +59,13 @@ public class QTEManager : MonoBehaviour
             return;
         }
 
+        if (!audioPlayed && pendingQTEAudio != null && AudioManager.Instance != null)
+        {
+            AudioManager.Instance.SFX.PlaySFX(pendingQTEAudio);
+            Debug.Log($"<color=cyan>[QTEManager]</color> Playing QTE audio: {pendingQTEAudio.name}");
+            audioPlayed = true;
+        }
+
         float effectiveTime = qteTimer - startDelay;
         currentProgress = effectiveTime / barDuration;
 
@@ -68,7 +78,7 @@ public class QTEManager : MonoBehaviour
         CheckInput();
     }
 
-    public void StartQTE(List<QTEButton> buttons)
+    public void StartQTE(List<QTEButton> buttons, AudioClip qteAudio = null)
     {
         qteButtons = buttons;
         currentButtonIndex = 0;
@@ -76,6 +86,8 @@ public class QTEManager : MonoBehaviour
         qteTimer = 0f;
         currentProgress = 0f;
         isQTEActive = true;
+        pendingQTEAudio = qteAudio;
+        audioPlayed = false;
 
         Time.timeScale = 0f;
 
@@ -94,39 +106,42 @@ public class QTEManager : MonoBehaviour
         if (currentButtonIndex >= qteButtons.Count) return;
 
         QTEButton currentButton = qteButtons[currentButtonIndex];
-        
-        bool q_pressed = InputManager.QTEButton1WasPressed;
-        bool w_pressed = InputManager.QTEButton2WasPressed;
-        bool e_pressed = InputManager.QTEButton3WasPressed;
-        bool r_pressed = InputManager.QTEButton4WasPressed;
-        
-        bool anyButtonPressed = q_pressed || w_pressed || e_pressed || r_pressed;
-        
+
+        // CAMBIAR A FLECHAS:
+        bool up_pressed = InputManager.QTEButtonUpWasPressed;     
+        bool down_pressed = InputManager.QTEButtonDownWasPressed; 
+        bool right_pressed = InputManager.QTEButtonRightWasPressed;
+        bool left_pressed = InputManager.QTEButtonLeftWasPressed;  
+
+        bool anyButtonPressed = up_pressed || down_pressed || right_pressed || left_pressed;
+
         if (!anyButtonPressed) return;
-        
-        bool correctButtonPressed = 
-            (q_pressed && currentButton.keyCode == KeyCode.Q) ||
-            (w_pressed && currentButton.keyCode == KeyCode.W) ||
-            (e_pressed && currentButton.keyCode == KeyCode.E) ||
-            (r_pressed && currentButton.keyCode == KeyCode.R);
-        
+
+        bool correctButtonPressed =
+            (up_pressed && currentButton.keyCode == KeyCode.UpArrow) ||
+            (down_pressed && currentButton.keyCode == KeyCode.DownArrow) ||
+            (right_pressed && currentButton.keyCode == KeyCode.RightArrow) ||
+            (left_pressed && currentButton.keyCode == KeyCode.LeftArrow);
+
         if (correctButtonPressed)
         {
             int score = EvaluateHit(currentButton.targetPosition);
             totalScore += score;
-            
+            lastButtonScore = score;
+
             string result = score == 3 ? "PERFECTO" : score == 1 ? "PARCIAL" : "MISS";
             Debug.Log($"Button {currentButtonIndex + 1}: {result} (+{score} puntos)");
-            
+
             currentButtonIndex++;
         }
         else
         {
-            string wrongKey = q_pressed ? "Q" : w_pressed ? "W" : e_pressed ? "E" : "R";
+            string wrongKey = up_pressed ? "↑" : down_pressed ? "↓" : right_pressed ? "→" : "←";
             string expectedKey = currentButton.keyCode.ToString();
-            
+
             Debug.Log($"Button {currentButtonIndex + 1}: FALLO - Presionaste {wrongKey} (esperaba {expectedKey}) (+0 puntos)");
-            
+
+            lastButtonScore = 0;
             currentButtonIndex++;
         }
     }
@@ -209,6 +224,11 @@ public class QTEManager : MonoBehaviour
     public int GetCurrentButtonIndex()
     {
         return currentButtonIndex;
+    }
+
+    public int GetLastButtonScore()
+    {
+        return lastButtonScore;
     }
 
     /// <summary>

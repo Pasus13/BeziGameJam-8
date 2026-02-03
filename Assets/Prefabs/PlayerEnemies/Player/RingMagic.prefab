@@ -51,6 +51,6 @@ MonoBehaviour:
   damagePerHit: 2
   hitInterval: 0.5
   colliderSize: 0.4
-  ringColor: {r: 0, g: 1, b: 1, a: 1}
+  ringColor: {r: 0, g: 1, b: 1, a: 0}
   lineRenderer: {fileID: 0}
   showDebugLogs: 1

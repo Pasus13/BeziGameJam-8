@@ -101,6 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 191079526984504827}
   - component: {fileID: 2354969526232433520}
+  - component: {fileID: -8115298504640884062}
   m_Layer: 0
   m_Name: Enemigo Volador Importado
   m_TagString: Untagged
@@ -148,6 +149,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!210 &-8115298504640884062
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426321955029922902}
+  m_Enabled: 1
+  m_SortingLayerID: 1437248961
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &5284919124890312919
 GameObject:
   m_ObjectHideFlags: 0

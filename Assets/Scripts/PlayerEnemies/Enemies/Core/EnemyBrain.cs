@@ -25,7 +25,7 @@ public class EnemyBrain : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // Encontrar player si no está asignado
+        // Encontrar player si no estï¿½ asignado
         if (player == null)
         {
             GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -35,46 +35,46 @@ public class EnemyBrain : MonoBehaviour
             }
             else
             {
-                Debug.LogError($"EnemyBrain on {gameObject.name}: No se encontró el jugador con tag 'Player'!");
+                Debug.LogError($"EnemyBrain on {gameObject.name}: Player not found with tag 'Player'!");
             }
         }
 
-        // Inicializar componentes
+        // Initialize components
         InitializeComponents();
 
-        // Crear contexto compartido
+        // Create shared context
         context = new EnemyContext(transform, player, rb, config);
         context.Movement = movement;
         context.Sensors = sensors;
         context.Attack = attack;
 
-        // Estado inicial: Patrol
+        // Initial state: Patrol
         ChangeState(new PatrolState(context, this));
     }
 
     private void InitializeComponents()
     {
-        // Obtener o añadir componentes según lo que tenga el enemigo
+        // Get or add components depending on what the enemy has
         movement = GetComponent<IEnemyMovement>();
         if (movement == null)
         {
-            // Si no tiene IEnemyMovement, añadir EnemyMovement por defecto
+            // If it doesn't have IEnemyMovement, add EnemyMovement by default
             movement = gameObject.AddComponent<EnemyMovement>();
-            Debug.Log($"EnemyBrain: Añadido EnemyMovement automáticamente a {gameObject.name}");
+            Debug.Log($"EnemyBrain: Added EnemyMovement automatically to {gameObject.name}");
         }
 
         sensors = GetComponent<EnemySensors>();
         if (sensors == null)
         {
             sensors = gameObject.AddComponent<EnemySensors>();
-            Debug.Log($"EnemyBrain: Añadido EnemySensors automáticamente a {gameObject.name}");
+            Debug.Log($"EnemyBrain: Added EnemySensors automatically to {gameObject.name}");
         }
 
         attack = GetComponent<IAttack>();
         if (attack == null)
         {
-            Debug.LogError($"EnemyBrain on {gameObject.name}: No se encontró ningún componente IAttack! " +
-                          "Añade ChargeAttack, ShootAttack o DiveAttack.");
+            Debug.LogError($"EnemyBrain on {gameObject.name}: No IAttack component found! " +
+                          "Add ChargeAttack, ShootAttack or DiveAttack.");
         }
     }
 
@@ -114,7 +114,7 @@ public class EnemyBrain : MonoBehaviour
     }
 
     /// <summary>
-    /// Obtiene el contexto (útil para debugging)
+    /// Obtiene el contexto (ï¿½til para debugging)
     /// </summary>
     public EnemyContext GetContext()
     {
@@ -125,7 +125,7 @@ public class EnemyBrain : MonoBehaviour
     {
         if (config == null) return;
 
-        // Dibujar rango de detección
+        // Dibujar rango de detecciï¿½n
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, config.detectionRange);
 

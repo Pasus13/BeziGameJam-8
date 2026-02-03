@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MagicSpellData
   spellName: Magia de Hielo
   buttons:
-  - key: 114
-    position: 0.2
-  - key: 113
-    position: 0.4
-  - key: 119
+  - key: 276
+    position: 0.35
+  - key: 275
     position: 0.6
-  - key: 101
-    position: 0.8
+  - key: 274
+    position: 0.9
+  qteAudioClip: {fileID: 8300000, guid: 929b63c004e637146a2e6ca869c06482, type: 3}
   damageArea: {fileID: 11400000, guid: 523207fb8a2445c459d1ce64471722cc, type: 2}
   cooldownMultiplier: 0.8
+  vfxPrefab: {fileID: 8017262376095479188, guid: b1557ee1a5f801f4490b9281f4d82a39, type: 3}
+  vfxOffset: {x: 3, y: 0.7}
+  vfxDuration: 1.5

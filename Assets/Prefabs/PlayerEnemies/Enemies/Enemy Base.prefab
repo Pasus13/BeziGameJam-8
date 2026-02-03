@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 56418707497697623}
   - component: {fileID: -6419059400415253743}
   - component: {fileID: 7562645992995567895}
+  - component: {fileID: 4831390220916955131}
   m_Layer: 0
   m_Name: Enemy Base
   m_TagString: Enemy
@@ -339,3 +340,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!210 &4831390220916955131
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250174970550048140}
+  m_Enabled: 1
+  m_SortingLayerID: 1437248961
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

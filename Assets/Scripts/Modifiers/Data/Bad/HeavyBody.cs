@@ -20,7 +20,7 @@ public class HeavyBodyModifier : ModifierData
         var pm = gameManager.PlayerMovement;
         if (pm == null)
         {
-            Debug.LogError("HeavyBodyModifier: No encuentro GameManager.PlayerMovement.");
+            Debug.LogError("HeavyBodyModifier: GameManager.PlayerMovement not found.");
             return null;
         }
 
@@ -65,7 +65,7 @@ public class HeavyBodyModifier : ModifierData
             var pm = gameManager.PlayerMovement;
             if (pm == null) return;
 
-            // Revertimos multiplicando por el inverso
+            // Revert by multiplying by the inverse
             pm.MultiplyGravity(1f / _gravityMult);
 
             if (_appliedFall && _fallMult != 0f)

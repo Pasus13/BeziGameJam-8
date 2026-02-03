@@ -55,11 +55,11 @@ public class ModifierManager : MonoBehaviour
     {
         if (recipesForButtons == null || recipesForButtons.Length < buttonCount)
         {
-            Debug.LogError("ModifierManager: recipesForButtons no tiene suficientes recetas.");
+            Debug.LogError("ModifierManager: recipesForButtons doesn't have enough recipes.");
             return new ModifierOffer[0];
         }
 
-        // Copias temporales para evitar repetición dentro de la misma generación
+        // Temporary copies to avoid repetition within the same generation
         var goodPool = new List<ModifierData>(_good);
         var badPool = new List<ModifierData>(_bad);
         var neutralPool = new List<ModifierData>(_neutral);
@@ -97,10 +97,10 @@ public class ModifierManager : MonoBehaviour
         if (from.Count < count)
         {
             Debug.LogWarning(
-                $"ModifierManager: no hay suficientes {label} modifiers. " +
-                $"Se pidieron {count}, hay {from.Count}."
+                $"ModifierManager: not enough {label} modifiers. " +
+                $"Requested {count}, available {from.Count}."
             );
-            count = from.Count; // degradación segura
+            count = from.Count; // safe degradation
         }
 
         for (int i = 0; i < count; i++)
@@ -116,8 +116,8 @@ public class ModifierManager : MonoBehaviour
     #region Apply Modifiers
 
     /// <summary>
-    /// Aplica todos los modifiers de una oferta y guarda sus efectos activos.
-    /// Devuelve los handles (IRevertibleEffect) creados por esta oferta.
+    /// Applies all modifiers from an offer and saves their active effects.
+    /// Returns the handles (IRevertibleEffect) created by this offer.
     /// </summary>
     public List<IRevertibleEffect> ApplyOffer(ModifierOffer offer, GameManager gameManager)
     {
@@ -125,13 +125,13 @@ public class ModifierManager : MonoBehaviour
 
         if (offer == null || gameManager == null)
         {
-            Debug.LogError("ModifierManager.ApplyOffer: offer o gameManager es null.");
+            Debug.LogError("ModifierManager.ApplyOffer: offer or gameManager is null.");
             return appliedEffects;
         }
 
         if (offer.Mods == null || offer.Mods.Count == 0)
         {
-            Debug.LogWarning("ModifierManager.ApplyOffer: la oferta no contiene modifiers.");
+            Debug.LogWarning("ModifierManager.ApplyOffer: the offer doesn't contain modifiers.");
             return appliedEffects;
         }
 
@@ -155,19 +155,19 @@ public class ModifierManager : MonoBehaviour
     #region Revert Effects
 
     /// <summary>
-    /// Revierte un efecto concreto por índice.
+    /// Reverts a specific effect by index.
     /// </summary>
     public bool RevertEffectAt(int index, GameManager gameManager)
     {
         if (gameManager == null)
         {
-            Debug.LogError("ModifierManager.RevertEffectAt: gameManager es null.");
+            Debug.LogError("ModifierManager.RevertEffectAt: gameManager is null.");
             return false;
         }
 
         if (index < 0 || index >= _activeEffects.Count)
         {
-            Debug.LogWarning($"ModifierManager.RevertEffectAt: índice inválido {index}.");
+            Debug.LogWarning($"ModifierManager.RevertEffectAt: invalid index {index}.");
             return false;
         }
 
@@ -177,7 +177,7 @@ public class ModifierManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Revierte un efecto concreto usando su referencia (handle).
+    /// Reverts a specific effect using its reference (handle).
     /// </summary>
     public bool RevertEffect(IRevertibleEffect effect, GameManager gameManager)
     {
@@ -192,17 +192,17 @@ public class ModifierManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Revierte todos los efectos activos (reset de run / nivel).
+    /// Reverts all active effects (run / level reset).
     /// </summary>
     public void RevertAll(GameManager gameManager)
     {
         if (gameManager == null)
         {
-            Debug.LogError("ModifierManager.RevertAll: gameManager es null.");
+            Debug.LogError("ModifierManager.RevertAll: gameManager is null.");
             return;
         }
 
-        // Importante: revertir en orden inverso
+        // Important: revert in reverse order
         for (int i = _activeEffects.Count - 1; i >= 0; i--)
         {
             _activeEffects[i].Revert(gameManager);

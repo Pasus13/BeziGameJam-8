@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 /// <summary>
 /// Movimiento especializado para el Enemy Flyer.
@@ -78,11 +78,11 @@ public class FlyerHoverMovement : EnemyMovement
     }
 
     /// <summary>
-    /// Mueve hacia un objetivo manteniendo una altura específica
+    /// Moves towards a target while maintaining a specific height
     /// </summary>
     public void MoveTowardsWithHeight(Vector2 target, float speed, float height)
     {
-        // Ajustar objetivo para mantener altura
+        // Adjust target to maintain height
         Vector2 adjustedTarget = new Vector2(target.x, height);
         MoveTowards(adjustedTarget, speed);
     }

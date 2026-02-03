@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 /// <summary>
 /// Ataque de disparo en arco (mortero) para el Enemy Shooter.
@@ -35,7 +35,7 @@ public class ShootAttack : MonoBehaviour, IAttack
 
         if (config == null)
         {
-            Debug.LogError($"ShootAttack on {gameObject.name}: No se encontró ShooterEnemyConfig!");
+            Debug.LogError($"ShootAttack on {gameObject.name}: ShooterEnemyConfig not found!");
         }
     }
 
@@ -50,15 +50,15 @@ public class ShootAttack : MonoBehaviour, IAttack
     {
         if (isShooting || config == null) return;
 
-        // Encontrar al jugador
+        // Find player
         Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
         if (player == null)
         {
-            Debug.LogWarning($"ShootAttack: No se encontró el jugador!");
+            Debug.LogWarning($"ShootAttack: Player not found!");
             return;
         }
 
-        // SNAPSHOT: Fijar posición hacia donde ESTÁ el jugador AHORA
+        // SNAPSHOT: Lock position towards where the player IS NOW
         targetPosition = player.position;
         isShooting = true;
 

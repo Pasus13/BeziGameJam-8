@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -8,6 +9,9 @@ public class RingMagicSpawner : MonoBehaviour
 {
     [Header("Ring Prefab")]
     [SerializeField] private GameObject ringMagicPrefab;
+
+    [Header("VFX GameObject (Child)")]
+    [SerializeField] private GameObject vfxGameObject;
 
     [Header("Perfect QTE Values")]
     [SerializeField] private float perfectRadius = 2.5f;
@@ -26,6 +30,7 @@ public class RingMagicSpawner : MonoBehaviour
     [SerializeField] private Color partialColor = Color.yellow;
 
     private GameObject currentRing;
+    private Coroutine vfxDeactivationCoroutine;
 
     /// <summary>
     /// Spawns ring with perfect QTE values
@@ -48,16 +53,13 @@ public class RingMagicSpawner : MonoBehaviour
     private void SpawnRing(float radius, int damage, float rotSpeed,
                            float duration, float hitInterval, Color color)
     {
-        // Destroy existing ring if any
         if (currentRing != null)
         {
             Destroy(currentRing);
         }
 
-        // Spawn ring at player position
         currentRing = Instantiate(ringMagicPrefab, transform.position, Quaternion.identity);
 
-        // Get RingMagicBehavior and initialize
         RingMagicBehavior behavior = currentRing.GetComponent<RingMagicBehavior>();
         if (behavior != null)
         {
@@ -68,6 +70,39 @@ public class RingMagicSpawner : MonoBehaviour
             Debug.LogError("RingMagicSpawner: RingMagicPrefab doesn't have RingMagicBehavior component!");
         }
 
-        Debug.Log($"<color=cyan>[RingMagicSpawner]</color> Ring spawned - Radius: {radius}, Damage: {damage}");
+        if (vfxGameObject != null)
+        {
+            if (vfxDeactivationCoroutine != null)
+            {
+                StopCoroutine(vfxDeactivationCoroutine);
+            }
+
+            vfxGameObject.SetActive(true);
+            
+            Animator vfxAnimator = vfxGameObject.GetComponent<Animator>();
+            if (vfxAnimator != null)
+            {
+                vfxAnimator.Play(0, -1, 0f);
+            }
+
+            vfxDeactivationCoroutine = StartCoroutine(DeactivateVFXAfterDuration(duration));
+            
+            Debug.Log($"<color=magenta>[RingMagicSpawner]</color> VFX activated with duration: {duration}s");
+        }
+
+        Debug.Log($"<color=cyan>[RingMagicSpawner]</color> Ring spawned - Radius: {radius}, Damage: {damage}, Duration: {duration}s");
+    }
+
+    private IEnumerator DeactivateVFXAfterDuration(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        
+        if (vfxGameObject != null)
+        {
+            vfxGameObject.SetActive(false);
+            Debug.Log($"<color=magenta>[RingMagicSpawner]</color> VFX deactivated");
+        }
+        
+        vfxDeactivationCoroutine = null;
     }
 }

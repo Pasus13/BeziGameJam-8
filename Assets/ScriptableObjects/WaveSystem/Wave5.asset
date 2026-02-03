@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec13639c99803642845de0732f1fc04, type: 3}
+  m_Name: Wave5
+  m_EditorClassIdentifier: Assembly-CSharp::WaveData
+  enemies:
+  - enemyPrefab: {fileID: 3249238743319496311, guid: eb58fe900c25c08478ad37089f6f25f5, type: 3}
+    count: 4
+  - enemyPrefab: {fileID: 7874840427369765575, guid: c6f3ff07f4ecdd842bcfdc3dd27098ae, type: 3}
+    count: 4
+  - enemyPrefab: {fileID: 455007270296734287, guid: 8ae61313ce84a614483d6810c25982db, type: 3}
+    count: 4

@@ -14,15 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MagicSpellData
   spellName: Magia de Rayo
   buttons:
-  - key: 113
-    position: 0.1
-  - key: 101
+  - key: 276
     position: 0.3
-  - key: 114
+  - key: 273
     position: 0.5
-  - key: 119
-    position: 0.7
-  - key: 113
-    position: 0.9
+  - key: 274
+    position: 0.75
   damageArea: {fileID: 11400000, guid: 25e8ebe6cc0bfe44cacca0246bbf6e4e, type: 2}
   cooldownMultiplier: 1.3

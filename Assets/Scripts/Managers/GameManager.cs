@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -129,15 +129,15 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("⚠ MagicSystem no asignado en GameManager");
         }
 
-        // 3. Resetear modificadores (revertir todos los efectos)
+        // 3. Reset modifiers (revert all effects)
         if (modifierManager != null)
         {
             modifierManager.RevertAll(this);
-            Debug.Log("✓ Modificadores revertidos");
+            Debug.Log("✓ Modifiers reverted");
         }
         else
         {
-            Debug.LogWarning("⚠ ModifierManager no asignado en GameManager");
+            Debug.LogWarning("⚠ ModifierManager not assigned in GameManager");
         }
 
         // 4. Resetear multiplicadores de movimiento
@@ -175,8 +175,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("<color=green>[GameManager]</color> Game started, initializing...");
 
         // Start wave system
-        if (WaveManager.Instance != null)
-            WaveManager.Instance.StartWaves();
+        /*if (WaveManager.Instance != null)
+            WaveManager.Instance.StartWaves();*/
 
         // Reset player health
         if (player != null)

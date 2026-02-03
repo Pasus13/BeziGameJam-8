@@ -73,12 +73,12 @@ public class HealthComponent : MonoBehaviour, IDamageable
         {
             Debug.Log($"<color=green>[DEBUG]</color> KnockbackReceiver encontrado, aplicando knockback");
             Vector2 direction = ((Vector2)transform.position - attackerPosition).normalized;
-            Debug.Log($"<color=green>[DEBUG]</color> Dirección calculada: {direction}");
+            Debug.Log($"<color=green>[DEBUG]</color> Direction calculated: {direction}");
             knockbackReceiver.ApplyKnockback(direction);
         }
         else
         {
-            Debug.LogError($"<color=red>[DEBUG]</color> NO se encontró KnockbackReceiver!");
+            Debug.LogError($"<color=red>[DEBUG]</color> KnockbackReceiver NOT found!");
         }
     }
 

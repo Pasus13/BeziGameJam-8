@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class PlayerDeathHandler : MonoBehaviour
 {
@@ -11,20 +11,20 @@ public class PlayerDeathHandler : MonoBehaviour
         if (playerHealth == null)
             playerHealth = GetComponent<PlayerHealth>();
 
-        // Validar que tenemos la referencia necesaria
+        // Validate we have the necessary reference
         if (playerHealth == null)
         {
-            Debug.LogError("PlayerDeathHandler: No se encontró PlayerHealth en el Player!");
+            Debug.LogError("PlayerDeathHandler: PlayerHealth not found on Player!");
             return;
         }
 
-        // Suscribirse SOLO al evento de muerte del HealthComponent
+        // Subscribe ONLY to the HealthComponent death event
         playerHealth.OnDeath += HandlePlayerDeath;
     }
 
     private void OnDestroy()
     {
-        // Desuscribirse para evitar memory leaks
+        // Unsubscribe to avoid memory leaks
         if (playerHealth != null)
         {
             playerHealth.OnDeath -= HandlePlayerDeath;
@@ -32,12 +32,12 @@ public class PlayerDeathHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Se llama cuando el jugador muere (CurrentHealth = 0)
-    /// Ahora activa Game Over directo, sin respawn
+    /// Called when the player dies (CurrentHealth = 0)
+    /// Now activates Game Over directly, without respawn
     /// </summary>
     private void HandlePlayerDeath()
     {
-        Debug.Log("=== GAME OVER - PLAYER MURIÓ ===");
+        Debug.Log("=== GAME OVER - PLAYER DIED ===");
 
         if (UIManager.Instance != null)
         {
@@ -45,7 +45,7 @@ public class PlayerDeathHandler : MonoBehaviour
         }
         else
         {
-            Debug.LogError("UIManager.Instance es null! No se puede mostrar Game Over Panel");
+            Debug.LogError("UIManager.Instance is null! Cannot show Game Over Panel");
         }
     }
 }

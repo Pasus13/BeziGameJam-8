@@ -5,30 +5,30 @@ public class MaxHealthModifier : ModifierData
 {
     [Header("Health Increase")]
     [Range(1f, 200f)]
-    [Tooltip("Porcentaje de aumento de vida máxima (ej: 25 = +25% vida)")]
+    [Tooltip("Percentage of max health increase (e.g.: 25 = +25% health)")]
     public float percent = 25f;
 
     public override IRevertibleEffect Apply(GameManager gameManager)
     {
         if (gameManager == null) return null;
 
-        // Obtener el PlayerHealth del GameManager
+        // Get PlayerHealth from GameManager
         PlayerHealth playerHealth = gameManager.GetComponent<PlayerHealth>();
         if (playerHealth == null)
         {
-            Debug.LogError("MaxHealthModifier: No se encuentra PlayerHealth en GameManager.");
+            Debug.LogError("MaxHealthModifier: PlayerHealth not found in GameManager.");
             return null;
         }
 
-        // Calcular multiplicador (25% = 1.25x)
+        // Calculate multiplier (25% = 1.25x)
         float mult = 1f + percent / 100f;
 
-        // Aplicar el modificador
+        // Apply modifier
         playerHealth.ModifyMaxHealth(mult);
 
-        Debug.Log($"MaxHealthModifier: Aplicado x{mult:F2} ({percent}%)");
+        Debug.Log($"MaxHealthModifier: Applied x{mult:F2} ({percent}%)");
 
-        // Retornar el efecto para poder revertirlo después
+        // Return the effect to be able to revert it later
         return new MaxHealthEffect(mult);
     }
 
@@ -47,10 +47,10 @@ public class MaxHealthModifier : ModifierData
             PlayerHealth playerHealth = gameManager.GetComponent<PlayerHealth>();
             if (playerHealth == null) return;
 
-            // Revertir aplicando el inverso del multiplicador
+            // Revert by applying the inverse multiplier
             playerHealth.ModifyMaxHealth(1f / _mult);
 
-            Debug.Log($"MaxHealthModifier: Revertido x{_mult:F2}");
+            Debug.Log($"MaxHealthModifier: Reverted x{_mult:F2}");
         }
     }
 }

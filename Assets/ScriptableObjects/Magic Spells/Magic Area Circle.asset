@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Magic Area Circle
   m_EditorClassIdentifier: Assembly-CSharp::MagicDamageArea
   areaType: 0
-  baseDamage: 50
+  baseDamage: 10
   circleRadius: 5
   coneAngle: 60
   coneDistance: 5

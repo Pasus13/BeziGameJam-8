@@ -83,7 +83,7 @@ public class MagicSystem : MonoBehaviour
             buttons.Add(new QTEButton(buttonData.key, buttonData.position));
         }
         
-        QTEManager.Instance.StartQTE(buttons);
+        QTEManager.Instance.StartQTE(buttons, spell.qteAudioClip);
 
         cooldownTimer = magicCooldown * spell.cooldownMultiplier * cooldownMultiplier;
     }
@@ -126,9 +126,11 @@ public class MagicSystem : MonoBehaviour
 
         if (damageMultiplier <= 0f)
         {
-            Debug.Log($"QTE fallido, no se aplica daño.");
+            Debug.Log($"QTE failed, no damage applied.");
             return;
         }
+
+        SpawnMagicVFX(spell, damageMultiplier);
 
         // Check if this is Ring Magic
         if (spell.spellName.Contains("Aro") || spell.spellName.Contains("Ring"))
@@ -146,7 +148,7 @@ public class MagicSystem : MonoBehaviour
                 }
 
                 Debug.Log($"[{spell.spellName}] Ring Magic spawned!");
-                return; // Don't apply instant damage, ring will handle it over time
+                return;
             }
         }
 
@@ -178,7 +180,39 @@ public class MagicSystem : MonoBehaviour
             enemy.TakeDamage(finalDamage, playerPosition);
         }
         
-        Debug.Log($"[{spell.spellName}] Daño aplicado: {finalDamage} a {enemiesHit.Count} enemigo(s)");
+        Debug.Log($"[{spell.spellName}] Damage applied: {finalDamage} to {enemiesHit.Count} enemy(ies)");
+    }
+
+    private void SpawnMagicVFX(MagicSpellData spell, float damageMultiplier)
+    {
+        if (spell.vfxPrefab == null)
+        {
+            return;
+        }
+
+        Vector2 offset = spell.vfxOffset;
+        Quaternion rotation = Quaternion.identity;
+        
+        if (spell.damageArea != null && spell.damageArea.areaType == DamageAreaType.Cone)
+        {
+            bool facingRight = playerMovement != null && playerMovement.IsFacingRight;
+            rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
+            
+            if (!facingRight)
+            {
+                offset.x = -offset.x;
+            }
+        }
+        
+        Vector2 spawnPosition = (Vector2)transform.position + offset;
+        GameObject vfx = Instantiate(spell.vfxPrefab, spawnPosition, rotation);
+        
+        if (spell.vfxDuration > 0f)
+        {
+            Destroy(vfx, spell.vfxDuration);
+        }
+        
+        Debug.Log($"<color=magenta>[VFX]</color> Spawned {spell.vfxPrefab.name} at {spawnPosition}");
     }
     
     private List<IDamageable> GetEnemiesInCircle(Vector2 center, float radius)

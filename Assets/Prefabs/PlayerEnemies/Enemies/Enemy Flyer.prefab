@@ -389,6 +389,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a37c619e2e34675448acf9868da640c3, type: 2}
+    - target: {fileID: 7943537719579397867, guid: 0242a5dbb55730046b0133ab89c0b3f3, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2051345361285499905, guid: 0242a5dbb55730046b0133ab89c0b3f3, type: 3}
     - {fileID: 1630488982538459770, guid: 0242a5dbb55730046b0133ab89c0b3f3, type: 3}
@@ -410,6 +414,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1250174970550048140, guid: 0242a5dbb55730046b0133ab89c0b3f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 685664845301583741}
+    - targetCorrespondingSourceObject: {fileID: 1250174970550048140, guid: 0242a5dbb55730046b0133ab89c0b3f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6788873847937064607}
   m_SourcePrefab: {fileID: 100100000, guid: 0242a5dbb55730046b0133ab89c0b3f3, type: 3}
 --- !u!4 &5241713150688141619 stripped
 Transform:
@@ -452,3 +459,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlyerHoverMovement
   hoverHeight: 3
   hoverSpeed: 2
+--- !u!210 &6788873847937064607
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7874840427369765575}
+  m_Enabled: 1
+  m_SortingLayerID: 1437248961
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0

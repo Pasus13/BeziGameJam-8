@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Mirror Controls
   m_EditorClassIdentifier: Assembly-CSharp::MirrorControlsModifier
   Type: 1
-  Title: Mirrow Controls
+  Title: Mirror Controls
   Description: Left/Right Controls inverted

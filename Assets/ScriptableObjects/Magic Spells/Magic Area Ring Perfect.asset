@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Magic Area Ring Perfect
   m_EditorClassIdentifier: Assembly-CSharp::MagicDamageArea
   areaType: 0
-  baseDamage: 20
+  baseDamage: 10
   circleRadius: 3
   coneAngle: 60
   coneDistance: 5

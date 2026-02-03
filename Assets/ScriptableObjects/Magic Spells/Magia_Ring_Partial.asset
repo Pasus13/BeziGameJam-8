@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MagicSpellData
   spellName: "Aro M\xE1gico Partial"
   buttons:
-  - key: 101
-    position: 0.35
-  - key: 113
+  - key: 275
+    position: 0.3
+  - key: 273
     position: 0.6
-  - key: 114
-    position: 0.85
+  - key: 276
+    position: 0.9
+  qteAudioClip: {fileID: 8300000, guid: c5e8df0c06c40394aad770391f421e24, type: 3}
   damageArea: {fileID: 11400000, guid: c353acde972f78941816df6bbe8b8ef7, type: 2}
   cooldownMultiplier: 1
+  vfxPrefab: {fileID: 3009982511576785431, guid: 1cf8526b74575654b84169c1a0a174d1, type: 3}
+  vfxOffset: {x: 0, y: 0}
+  vfxDuration: 3

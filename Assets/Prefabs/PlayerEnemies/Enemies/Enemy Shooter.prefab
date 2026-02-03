@@ -199,6 +199,14 @@ PrefabInstance:
       propertyPath: config
       value: 
       objectReference: {fileID: 11400000, guid: 3b760ec0b51980640b76b2f4529c9c54, type: 2}
+    - target: {fileID: 7562645992995567895, guid: 0242a5dbb55730046b0133ab89c0b3f3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 34c5a0944d3375d46b91f2f70302ca2b, type: 2}
+    - target: {fileID: 7943537719579397867, guid: 0242a5dbb55730046b0133ab89c0b3f3, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1630488982538459770, guid: 0242a5dbb55730046b0133ab89c0b3f3, type: 3}
     m_RemovedGameObjects: []
@@ -210,6 +218,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1250174970550048140, guid: 0242a5dbb55730046b0133ab89c0b3f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: -8831819325612700198}
+    - targetCorrespondingSourceObject: {fileID: 1250174970550048140, guid: 0242a5dbb55730046b0133ab89c0b3f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2689619236652650541}
   m_SourcePrefab: {fileID: 100100000, guid: 0242a5dbb55730046b0133ab89c0b3f3, type: 3}
 --- !u!1 &455007270296734287 stripped
 GameObject:
@@ -230,6 +241,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShootAttack
   config: {fileID: 11400000, guid: 3b760ec0b51980640b76b2f4529c9c54, type: 2}
   showDebugLogs: 0
+--- !u!210 &2689619236652650541
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455007270296734287}
+  m_Enabled: 1
+  m_SortingLayerID: 1437248961
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!4 &2569234594222174651 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3796183126606638712, guid: 0242a5dbb55730046b0133ab89c0b3f3, type: 3}
